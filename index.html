@@ -1,20 +1,137 @@
-<div class="categories">
-<div class="category"><span>🥬</span>Food & Grocery</div>
-<div class="category"><span>💄</span>Cosmetics</div>
-<div class="category"><span>👜</span>Bags</div>
-<div class="category"><span>📱</span>Electronics</div>
-<div class="category"><span>👟</span>Shoes</div>
-<div class="category"><span>👕</span>Fashion</div>
-<div class="category"><span>🎧</span>Mobile Accessories</div>
-<div class="category"><span>🍳</span>Home & Kitchen</div>
-<div class="category"><span>⌚</span>Watches & Jewelry</div>
-<div class="category"><span>🧸</span>Baby & Toys</div>
-<div class="category"><span>⚽</span>Sports & Fitness</div>
-<div class="category"><span>📚</span>Books & Stationery</div>
-<div class="category"><span>🛋️</span>Furniture</div>
-<div class="category"><span>🏍️</span>Automotive</div>
-<div class="category"><span>🧴</span>Health & Personal Care</div>
-<div class="category"><span>🐾</span>Pet Supplies</div>
-<div class="category"><span>💻</span>Computer & Laptop</div>
-<div class="category"><span>🎁</span>Gifts & Lifestyle</div>
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Professional Bazar | Online Shopping</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Arial,sans-serif;background:#f5f5f5;color:#333}
+.top{background:#f85606;color:white;text-align:right;padding:8px 5%;font-size:12px}
+header{background:#f85606;color:white;padding:15px 5%}
+.head{display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap}
+.logo{font-size:24px;font-weight:bold}
+.search{display:flex;flex:1;max-width:600px;background:white;border-radius:5px;overflow:hidden}
+.search input{flex:1;border:0;padding:13px;outline:none}
+.search button{background:#333;color:white;border:0;padding:12px 18px}
+.cart{font-size:17px;color:white;text-decoration:none}
+nav{background:white;padding:14px 5%;display:flex;gap:25px;overflow:auto}
+nav a{color:#333;text-decoration:none;white-space:nowrap;font-size:14px}
+nav a:hover{color:#f85606}
+.banner{margin:15px auto;background:linear-gradient(120deg,#f85606,#ff9c54);color:white;padding:40px 20px;text-align:center;border-radius:10px;width:92%}
+.banner h1{font-size:30px;margin-bottom:12px}
+.banner p{margin-bottom:20px}
+.banner button{background:white;color:#f85606;padding:12px 25px;border:0;border-radius:5px;font-weight:bold}
+.container{width:92%;margin:20px auto}
+.title{font-size:21px;margin-bottom:15px;border-left:5px solid #f85606;padding-left:10px}
+.categories{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
+.category{background:white;padding:20px 8px;text-align:center;border-radius:8px;font-size:14px}
+.category span{display:block;font-size:30px;margin-bottom:8px}
+.products{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
+.product{background:white;border-radius:8px;overflow:hidden;padding-bottom:12px;transition:.2s}
+.product:hover{transform:translateY(-4px);box-shadow:0 5px 15px #ddd}
+.product img{width:100%;height:170px;object-fit:cover}
+.product h3{font-size:15px;padding:10px}
+.price{color:#f85606;font-weight:bold;padding:0 10px}
+.product button{margin:10px;background:#f85606;color:white;border:0;padding:10px;border-radius:5px;width:calc(100% - 20px)}
+.seller{background:#fff1e9;padding:30px;text-align:center;border-radius:10px}
+.seller button{background:#f85606;color:white;border:0;padding:12px 22px;border-radius:5px;margin-top:15px}
+footer{background:#222;color:white;padding:35px 5%;margin-top:30px;text-align:center}
+footer p{margin-top:10px;color:#ccc}
+@media(max-width:700px){
+.logo{font-size:20px}
+.head{justify-content:center}
+.search{order:3;flex-basis:100%}
+.categories{grid-template-columns:repeat(3,1fr)}
+.products{grid-template-columns:repeat(2,1fr)}
+.banner h1{font-size:23px}
+.product img{height:135px}
+}
+</style>
+</head>
+<body>
+<div class="top">Welcome to Professional Bazar | Your Online Shopping Partner</div>
+<header>
+<div class="head">
+<div class="logo">🛍️ PROFESSIONAL BAZAR</div>
+<div class="search">
+<input id="search" placeholder="Search for products...">
+<button onclick="searchProducts()">Search</button>
 </div>
+<a class="cart" href="#products">🛒 Cart</a>
+</div>
+</header>
+<nav>
+<a href="#">Home</a>
+<a href="#categories">Categories</a>
+<a href="#products">Products</a>
+<a href="#seller">Become a Seller</a>
+<a href="#contact">Contact</a>
+</nav>
+<section class="banner">
+<h1>Welcome to Professional Bazar</h1>
+<p>Discover Amazing Products at Great Prices!</p>
+<button onclick="document.getElementById('products').scrollIntoView()">Shop Now</button>
+</section>
+<section class="container" id="categories">
+<h2 class="title">Shop By Categories</h2>
+<div class="categories">
+<div class="category"><span>📱</span>Electronics</div>
+<div class="category"><span>👕</span>Fashion</div>
+<div class="category"><span>🏠</span>Home</div>
+<div class="category"><span>💄</span>Beauty</div>
+<div class="category"><span>⌚</span>Accessories</div>
+<div class="category"><span>🎁</span>Others</div>
+</div>
+</section>
+<section class="container" id="products">
+<h2 class="title">Featured Products</h2>
+<div class="products" id="productList">
+<div class="product">
+<img src="https://placehold.co/400x300?text=Smartphone" alt="Smartphone">
+<h3>Smartphone</h3><div class="price">৳ 12,500</div>
+<button onclick="addCart('Smartphone',12500)">Add to Cart</button>
+</div>
+<div class="product">
+<img src="https://placehold.co/400x300?text=Smart+Watch" alt="Smart Watch">
+<h3>Smart Watch</h3><div class="price">৳ 1,500</div>
+<button onclick="addCart('Smart Watch',1500)">Add to Cart</button>
+</div>
+<div class="product">
+<img src="https://placehold.co/400x300?text=Headphone" alt="Headphone">
+<h3>Wireless Headphone</h3><div class="price">৳ 950</div>
+<button onclick="addCart('Headphone',950)">Add to Cart</button>
+</div>
+<div class="product">
+<img src="https://placehold.co/400x300?text=Fashion+Bag" alt="Fashion Bag">
+<h3>Fashion Bag</h3><div class="price">৳ 1,200</div>
+<button onclick="addCart('Fashion Bag',1200)">Add to Cart</button>
+</div>
+</div>
+</section>
+<section class="container seller" id="seller">
+<h2>Become a Seller on Professional Bazar</h2>
+<p>Open your online shop and grow your business with us.</p>
+<button onclick="alert('Seller Registration will be available soon!')">Register as Seller</button>
+</section>
+<footer id="contact">
+<h2>PROFESSIONAL BAZAR</h2>
+<p>Your Trusted Online Marketplace</p>
+<p>Contact: Add your business phone number</p>
+<p>© 2026 Professional Bazar. All Rights Reserved.</p>
+</footer>
+<script>
+let cart=[];
+function addCart(name,price){
+cart.push({name,price});
+alert(name+' added to cart successfully!');
+}
+function searchProducts(){
+let q=document.getElementById('search').value.toLowerCase();
+document.querySelectorAll('.product').forEach(p=>{
+p.style.display=p.innerText.toLowerCase().includes(q)?'block':'none';
+});
+}
+</script>
+</body>
+</html>
