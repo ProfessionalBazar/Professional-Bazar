@@ -1,137 +1,359 @@
+
 <!DOCTYPE html>
 <html lang="bn">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Professional Bazar | Online Shopping</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Professional Bazar</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:Arial,sans-serif;background:#f5f5f5;color:#333}
-.top{background:#f85606;color:white;text-align:right;padding:8px 5%;font-size:12px}
-header{background:#f85606;color:white;padding:15px 5%}
-.head{display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap}
-.logo{font-size:24px;font-weight:bold}
-.search{display:flex;flex:1;max-width:600px;background:white;border-radius:5px;overflow:hidden}
-.search input{flex:1;border:0;padding:13px;outline:none}
-.search button{background:#333;color:white;border:0;padding:12px 18px}
-.cart{font-size:17px;color:white;text-decoration:none}
-nav{background:white;padding:14px 5%;display:flex;gap:25px;overflow:auto}
-nav a{color:#333;text-decoration:none;white-space:nowrap;font-size:14px}
-nav a:hover{color:#f85606}
-.banner{margin:15px auto;background:linear-gradient(120deg,#f85606,#ff9c54);color:white;padding:40px 20px;text-align:center;border-radius:10px;width:92%}
-.banner h1{font-size:30px;margin-bottom:12px}
-.banner p{margin-bottom:20px}
-.banner button{background:white;color:#f85606;padding:12px 25px;border:0;border-radius:5px;font-weight:bold}
-.container{width:92%;margin:20px auto}
-.title{font-size:21px;margin-bottom:15px;border-left:5px solid #f85606;padding-left:10px}
-.categories{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
-.category{background:white;padding:20px 8px;text-align:center;border-radius:8px;font-size:14px}
-.category span{display:block;font-size:30px;margin-bottom:8px}
-.products{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
-.product{background:white;border-radius:8px;overflow:hidden;padding-bottom:12px;transition:.2s}
-.product:hover{transform:translateY(-4px);box-shadow:0 5px 15px #ddd}
-.product img{width:100%;height:170px;object-fit:cover}
-.product h3{font-size:15px;padding:10px}
-.price{color:#f85606;font-weight:bold;padding:0 10px}
-.product button{margin:10px;background:#f85606;color:white;border:0;padding:10px;border-radius:5px;width:calc(100% - 20px)}
-.seller{background:#fff1e9;padding:30px;text-align:center;border-radius:10px}
-.seller button{background:#f85606;color:white;border:0;padding:12px 22px;border-radius:5px;margin-top:15px}
-footer{background:#222;color:white;padding:35px 5%;margin-top:30px;text-align:center}
-footer p{margin-top:10px;color:#ccc}
-@media(max-width:700px){
-.logo{font-size:20px}
-.head{justify-content:center}
-.search{order:3;flex-basis:100%}
-.categories{grid-template-columns:repeat(3,1fr)}
-.products{grid-template-columns:repeat(2,1fr)}
-.banner h1{font-size:23px}
-.product img{height:135px}
-}
+:root{--orange:#f85606;--ash:#f3f4f6;--dark:#292929;--white:#fff}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ash);font-family:Arial,sans-serif;color:#333}
+header{background:var(--orange);color:white;padding:14px 4%;position:sticky;top:0;z-index:5}
+.top{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.logo{font-size:21px;font-weight:bold}
+.search{display:flex;flex:1;min-width:180px}
+.search input{margin:0;border:0;border-radius:6px 0 0 6px}
+.search button{border:0;background:#333;color:white;padding:10px 15px;border-radius:0 6px 6px 0}
+nav{display:flex;gap:16px;flex-wrap:wrap;margin-top:13px}
+nav a{color:white;text-decoration:none;font-size:14px}
+button{cursor:pointer}
+.btn{background:var(--orange);color:white;border:0;border-radius:6px;padding:10px 15px;margin:3px;font-weight:bold}
+.btn.dark{background:#333}
+.btn.red{background:#bd2929}
+.btn.green{background:#18864b}
+.btn.light{background:white;color:var(--orange)}
+.container{max-width:1200px;margin:auto;padding:16px}
+.banner{background:linear-gradient(110deg,#f85606,#ffad55);color:white;padding:35px 25px;border-radius:12px;margin-bottom:18px}
+.banner h1{font-size:30px;margin:0 0 10px}
+.section{background:white;border-radius:10px;padding:17px;margin:16px 0}
+.section h2{font-size:20px;margin:0 0 15px}
+.categories{display:grid;grid-template-columns:repeat(auto-fit,minmax(105px,1fr));gap:10px}
+.category{background:#fff5ef;border:1px solid #ffe0d0;border-radius:8px;padding:13px 5px;text-align:center;cursor:pointer;font-size:13px}
+.category span{display:block;font-size:26px;margin-bottom:7px}
+.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:13px}
+.product{border:1px solid #eee;border-radius:9px;overflow:hidden;background:white}
+.product img{width:100%;height:145px;object-fit:cover;background:#eee}
+.info{padding:10px}
+.info h3{font-size:15px;margin:4px 0}
+.price{color:var(--orange);font-size:18px;font-weight:bold;margin:8px 0}
+.muted{font-size:12px;color:#777}
+input,textarea,select{width:100%;padding:11px;border:1px solid #ddd;border-radius:6px;margin:5px 0 12px;font:inherit}
+textarea{min-height:75px}
+label{font-size:13px;font-weight:bold}
+.formgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px}
+.item{padding:12px 0;border-bottom:1px solid #eee}
+.hidden{display:none!important}
+.notice{background:#fff3e0;padding:12px;border-radius:7px;margin:10px 0;font-size:13px}
+.status{display:inline-block;background:#eee;border-radius:20px;padding:5px 9px;font-size:12px}
+footer{background:#292929;color:white;text-align:center;padding:25px;margin-top:25px}
+#toast{display:none;position:fixed;bottom:15px;left:50%;transform:translateX(-50%);background:#222;color:white;padding:12px 18px;border-radius:8px;z-index:20}
+@media(max-width:600px){.banner h1{font-size:23px}.container{padding:9px}.logo{font-size:18px}}
 </style>
 </head>
 <body>
-<div class="top">Welcome to Professional Bazar | Your Online Shopping Partner</div>
 <header>
-<div class="head">
-<div class="logo">🛍️ PROFESSIONAL BAZAR</div>
-<div class="search">
-<input id="search" placeholder="Search for products...">
-<button onclick="searchProducts()">Search</button>
-</div>
-<a class="cart" href="#products">🛒 Cart</a>
-</div>
+ <div class="top">
+  <div class="logo">🛍️ PROFESSIONAL BAZAR</div>
+  <div class="search">
+   <input id="search" placeholder="পণ্য খুঁজুন..." oninput="renderProducts()">
+   <button onclick="renderProducts()">🔍</button>
+  </div>
+  <button class="btn light" onclick="show('cart')">🛒 কার্ট <span id="cartCount">0</span></button>
+ </div>
+ <nav>
+  <a href="#" onclick="show('home')">হোম</a>
+  <a href="#categories" onclick="show('home')">ক্যাটাগরি</a>
+  <a href="#products" onclick="show('home')">পণ্য</a>
+  <a href="#" onclick="show('seller')">বিক্রেতা নিবন্ধন</a>
+  <a href="#" onclick="show('chat')">চ্যাট</a>
+  <a href="#" onclick="show('admin')">অ্যাডমিন</a>
+ </nav>
 </header>
-<nav>
-<a href="#">Home</a>
-<a href="#categories">Categories</a>
-<a href="#products">Products</a>
-<a href="#seller">Become a Seller</a>
-<a href="#contact">Contact</a>
-</nav>
-<section class="banner">
-<h1>Welcome to Professional Bazar</h1>
-<p>Discover Amazing Products at Great Prices!</p>
-<button onclick="document.getElementById('products').scrollIntoView()">Shop Now</button>
+
+<main class="container">
+<div id="home">
+ <div class="banner">
+  <h1>Professional Bazar-এ স্বাগতম</h1>
+  <p>আপনার পছন্দের সব পণ্য এক জায়গায়। কেনাকাটা হোক সহজ ও আনন্দময়।</p>
+  <button class="btn light" onclick="document.getElementById('products').scrollIntoView()">কেনাকাটা করুন</button>
+ </div>
+ <section class="section" id="categories">
+  <h2>🗂️ Shop By Categories</h2>
+  <div class="categories" id="categoryList"></div>
+ </section>
+ <section class="section" id="products">
+  <h2>🔥 জনপ্রিয় ও নতুন পণ্য</h2>
+  <div class="products" id="productList"></div>
+ </section>
+</div>
+
+<section class="section hidden" id="cart">
+ <h2>🛒 আপনার শপিং কার্ট</h2>
+ <div id="cartItems"></div>
+ <h3 id="cartTotal">মোট: ৳০</h3>
+ <button class="btn" onclick="show('checkout')">অর্ডার করুন</button>
+ <button class="btn dark" onclick="show('home')">কেনাকাটা চালিয়ে যান</button>
 </section>
-<section class="container" id="categories">
-<h2 class="title">Shop By Categories</h2>
-<div class="categories">
-<div class="category"><span>📱</span>Electronics</div>
-<div class="category"><span>👕</span>Fashion</div>
-<div class="category"><span>🏠</span>Home</div>
-<div class="category"><span>💄</span>Beauty</div>
-<div class="category"><span>⌚</span>Accessories</div>
-<div class="category"><span>🎁</span>Others</div>
-</div>
+
+<section class="section hidden" id="checkout">
+ <h2>📦 অর্ডার সম্পন্ন করুন</h2>
+ <label>আপনার নাম</label><input id="buyerName" placeholder="নাম">
+ <label>মোবাইল নম্বর</label><input id="buyerPhone" placeholder="01XXXXXXXXX">
+ <label>সম্পূর্ণ ঠিকানা</label><textarea id="buyerAddress" placeholder="আপনার ঠিকানা"></textarea>
+ <label>পেমেন্ট পদ্ধতি</label>
+ <select id="payment">
+  <option>Cash on Delivery</option><option>bKash</option>
+  <option>Nagad</option><option>Rocket</option>
+ </select>
+ <div class="notice">এটি ডেমো অর্ডার ব্যবস্থা। অনলাইন পেমেন্ট এখনো চালু হয়নি।</div>
+ <button class="btn" onclick="placeOrder()">অর্ডার জমা দিন</button>
 </section>
-<section class="container" id="products">
-<h2 class="title">Featured Products</h2>
-<div class="products" id="productList">
-<div class="product">
-<img src="https://placehold.co/400x300?text=Smartphone" alt="Smartphone">
-<h3>Smartphone</h3><div class="price">৳ 12,500</div>
-<button onclick="addCart('Smartphone',12500)">Add to Cart</button>
-</div>
-<div class="product">
-<img src="https://placehold.co/400x300?text=Smart+Watch" alt="Smart Watch">
-<h3>Smart Watch</h3><div class="price">৳ 1,500</div>
-<button onclick="addCart('Smart Watch',1500)">Add to Cart</button>
-</div>
-<div class="product">
-<img src="https://placehold.co/400x300?text=Headphone" alt="Headphone">
-<h3>Wireless Headphone</h3><div class="price">৳ 950</div>
-<button onclick="addCart('Headphone',950)">Add to Cart</button>
-</div>
-<div class="product">
-<img src="https://placehold.co/400x300?text=Fashion+Bag" alt="Fashion Bag">
-<h3>Fashion Bag</h3><div class="price">৳ 1,200</div>
-<button onclick="addCart('Fashion Bag',1200)">Add to Cart</button>
-</div>
-</div>
+
+<section class="section hidden" id="seller">
+ <h2>🏪 বিক্রেতা নিবন্ধন</h2>
+ <div class="notice">আপনার আবেদন অ্যাডমিন অনুমোদন করলে বিক্রেতা অ্যাকাউন্ট চালু হবে।</div>
+ <label>আপনার নাম</label><input id="sellerName" placeholder="পূর্ণ নাম">
+ <label>দোকানের নাম</label><input id="storeName" placeholder="দোকানের নাম">
+ <label>মোবাইল নম্বর</label><input id="sellerPhone" placeholder="01XXXXXXXXX">
+ <label>ঠিকানা</label><textarea id="sellerAddress" placeholder="দোকানের ঠিকানা"></textarea>
+ <button class="btn" onclick="registerSeller()">নিবন্ধনের আবেদন পাঠান</button>
+ <h3>পণ্য আপলোডের আবেদন</h3>
+ <label>বিক্রেতার দোকানের নাম</label><input id="productStore" placeholder="অনুমোদিত দোকানের নাম">
+ <label>পণ্যের নাম</label><input id="newProductName" placeholder="পণ্যের নাম">
+ <label>পণ্যের দাম (টাকা)</label><input id="newProductPrice" type="number" placeholder="দাম">
+ <label>ক্যাটাগরি</label><select id="newProductCategory"></select>
+ <label>পণ্যের ছবির লিংক (ঐচ্ছিক)</label><input id="newProductImage" placeholder="ছবির URL">
+ <label>পণ্যের বিবরণ</label><textarea id="newProductDescription" placeholder="পণ্যের বিবরণ"></textarea>
+ <button class="btn" onclick="submitProduct()">পণ্য অনুমোদনের জন্য পাঠান</button>
+ <p class="muted">অ্যাডমিন অনুমোদন না করা পর্যন্ত পণ্য প্রকাশ হবে না।</p>
 </section>
-<section class="container seller" id="seller">
-<h2>Become a Seller on Professional Bazar</h2>
-<p>Open your online shop and grow your business with us.</p>
-<button onclick="alert('Seller Registration will be available soon!')">Register as Seller</button>
+
+<section class="section hidden" id="chat">
+ <h2>💬 কাস্টমার সার্ভিস ও চ্যাট</h2>
+ <div class="notice">এটি প্রাথমিক চ্যাট ডেমো। বাস্তব ক্রেতা-বিক্রেতার অনলাইন চ্যাট চালাতে সার্ভার সংযোগ প্রয়োজন।</div>
+ <div id="messages"></div>
+ <label>আপনার বার্তা</label>
+ <textarea id="chatMessage" placeholder="আপনার মেসেজ লিখুন..."></textarea>
+ <button class="btn" onclick="sendMessage()">মেসেজ পাঠান</button>
 </section>
-<footer id="contact">
-<h2>PROFESSIONAL BAZAR</h2>
-<p>Your Trusted Online Marketplace</p>
-<p>Contact: Add your business phone number</p>
-<p>© 2026 Professional Bazar. All Rights Reserved.</p>
+
+<section class="section hidden" id="admin">
+ <h2>🛡️ অ্যাডমিন ড্যাশবোর্ড</h2>
+ <div class="notice">এটি পরীক্ষামূলক ড্যাশবোর্ড। প্রকৃত অ্যাডমিন নিরাপত্তার জন্য সার্ভারভিত্তিক লগইন যুক্ত করতে হবে।</div>
+ <h3>বিক্রেতার আবেদন</h3><div id="sellerRequests"></div>
+ <h3>পণ্য অনুমোদনের আবেদন</h3><div id="productRequests"></div>
+ <h3>নতুন অর্ডার</h3><div id="orderRequests"></div>
+ <h3>কমিশন সেটিংস</h3>
+ <label>কমিশনের হার (%)</label>
+ <input id="commission" type="number" min="0" max="100" value="10">
+ <button class="btn" onclick="saveCommission()">কমিশন সংরক্ষণ</button>
+ <h3>অ্যাডমিনের চ্যাট</h3><div id="adminMessages"></div>
+</section>
+</main>
+
+<footer>
+ <h3>PROFESSIONAL BAZAR</h3>
+ <p>আপনার বিশ্বস্ত অনলাইন মার্কেটপ্লেস</p>
+ <p>© 2026 Professional Bazar. All Rights Reserved.</p>
 </footer>
+<div id="toast"></div>
+
 <script>
-let cart=[];
-function addCart(name,price){
-cart.push({name,price});
-alert(name+' added to cart successfully!');
+const categories=[
+ ["🥬","Food & Grocery"],["💄","Cosmetics"],["👜","Bags"],
+ ["📱","Electronics"],["👟","Shoes"],["👕","Fashion"],
+ ["🎧","Mobile Accessories"],["🍳","Home & Kitchen"],
+ ["⌚","Watches & Jewelry"],["🧸","Baby & Toys"],
+ ["⚽","Sports & Fitness"],["📚","Books & Stationery"],
+ ["🛋️","Furniture"],["🏍️","Automotive"],
+ ["🧴","Health & Personal Care"],["🐾","Pet Supplies"],
+ ["💻","Computer & Laptop"],["🎁","Gifts & Lifestyle"]
+];
+
+const demoProducts=[
+ {id:1,name:"স্মার্টফোন",price:12500,category:"Electronics",image:"https://placehold.co/400x300?text=Smartphone",description:"স্মার্টফোন"},
+ {id:2,name:"স্মার্ট ওয়াচ",price:1800,category:"Electronics",image:"https://placehold.co/400x300?text=Smart+Watch",description:"স্মার্ট ওয়াচ"},
+ {id:3,name:"হেডফোন",price:950,category:"Mobile Accessories",image:"https://placehold.co/400x300?text=Headphone",description:"হেডফোন"},
+ {id:4,name:"ফ্যাশন ব্যাগ",price:1200,category:"Bags",image:"https://placehold.co/400x300?text=Bag",description:"ফ্যাশন ব্যাগ"},
+ {id:5,name:"স্পোর্টস জুতা",price:1600,category:"Shoes",image:"https://placehold.co/400x300?text=Shoes",description:"জুতা"},
+ {id:6,name:"বিউটি কসমেটিকস",price:750,category:"Cosmetics",image:"https://placehold.co/400x300?text=Beauty",description:"বিউটি পণ্য"}
+];
+
+function load(key, fallback){
+ try{return JSON.parse(localStorage.getItem(key)) ?? fallback}
+ catch(e){return fallback}
 }
-function searchProducts(){
-let q=document.getElementById('search').value.toLowerCase();
-document.querySelectorAll('.product').forEach(p=>{
-p.style.display=p.innerText.toLowerCase().includes(q)?'block':'none';
-});
+function save(key,value){localStorage.setItem(key,JSON.stringify(value))}
+let products=load("pb_products",demoProducts);
+let sellers=load("pb_sellers",[]);
+let productRequests=load("pb_product_requests",[]);
+let orders=load("pb_orders",[]);
+let messages=load("pb_messages",[]);
+let cart=load("pb_cart",[]);
+let commission=load("pb_commission",10);
+let selectedCategory="";
+
+function toast(message){
+ const t=document.getElementById("toast");
+ t.textContent=message;t.style.display="block";
+ setTimeout(()=>t.style.display="none",2500);
 }
+function show(id){
+ document.querySelectorAll("main>div,main>section").forEach(x=>x.classList.add("hidden"));
+ document.getElementById(id).classList.remove("hidden");
+ if(id==="cart")renderCart();
+ if(id==="admin")renderAdmin();
+ if(id==="chat")renderMessages();
+ window.scrollTo(0,0);
+}
+function renderCategories(){
+ document.getElementById("categoryList").innerHTML=categories.map(c=>
+ `<div class="category" onclick="filterCategory('${c[1]}')"><span>${c[0]}</span>${c[1]}</div>`
+ ).join("");
+ document.getElementById("newProductCategory").innerHTML=
+ categories.map(c=>`<option>${c[1]}</option>`).join("");
+}
+function filterCategory(category){
+ selectedCategory=category;
+ show("home");renderProducts();
+ document.getElementById("products").scrollIntoView();
+}
+function renderProducts(){
+ const q=(document.getElementById("search")?.value||"").toLowerCase();
+ const list=products.filter(p=>
+ (!selectedCategory||p.category===selectedCategory)&&
+ (p.name.toLowerCase().includes(q)||p.category.toLowerCase().includes(q))
+ );
+ document.getElementById("productList").innerHTML=list.length?list.map(p=>`
+ <div class="product">
+ <img src="${safe(p.image)}" alt="${safe(p.name)}" onerror="this.src='https://placehold.co/400x300?text=Product'">
+ <div class="info"><h3>${safe(p.name)}</h3>
+ <div class="muted">${safe(p.category)}</div>
+ <div class="price">৳${p.price}</div>
+ <button class="btn" onclick="addCart(${p.id})">কার্টে যোগ করুন</button></div>
+ </div>`).join(""):"<p>কোনো পণ্য পাওয়া যায়নি।</p>";
+}
+function safe(s){
+ return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+}
+function addCart(id){
+ const p=products.find(x=>x.id===id);if(!p)return;
+ const found=cart.find(x=>x.id===id);
+ if(found)found.qty++;else cart.push({id:p.id,name:p.name,price:p.price,qty:1});
+ save("pb_cart",cart);updateCartCount();toast("পণ্য কার্টে যোগ হয়েছে");
+}
+function updateCartCount(){
+ document.getElementById("cartCount").textContent=cart.reduce((n,x)=>n+x.qty,0);
+}
+function renderCart(){
+ const el=document.getElementById("cartItems");
+ if(!cart.length){el.innerHTML="<p>আপনার কার্ট খালি।</p>";}
+ else el.innerHTML=cart.map(x=>`<div class="item">
+ ${safe(x.name)} — ৳${x.price} × ${x.qty}
+ <button class="btn red" onclick="removeCart(${x.id})">বাদ দিন</button>
+ </div>`).join("");
+ document.getElementById("cartTotal").textContent="মোট: ৳"+cart.reduce((n,x)=>n+x.price*x.qty,0);
+}
+function removeCart(id){
+ cart=cart.filter(x=>x.id!==id);save("pb_cart",cart);
+ updateCartCount();renderCart();
+}
+function placeOrder(){
+ const name=document.getElementById("buyerName").value.trim();
+ const phone=document.getElementById("buyerPhone").value.trim();
+ const address=document.getElementById("buyerAddress").value.trim();
+ if(!name||!phone||!address||!cart.length){toast("সব তথ্য পূরণ করুন এবং কার্টে পণ্য রাখুন");return}
+ const total=cart.reduce((n,x)=>n+x.price*x.qty,0);
+ orders.push({id:Date.now(),name,phone,address,payment:document.getElementById("payment").value,items:[...cart],total,status:"অনুমোদনের অপেক্ষায়"});
+ save("pb_orders",orders);cart=[];save("pb_cart",cart);updateCartCount();
+ toast("অর্ডার জমা হয়েছে। অ্যাডমিন অনুমোদনের অপেক্ষায়।");show("home");
+}
+function registerSeller(){
+ const name=document.getElementById("sellerName").value.trim();
+ const store=document.getElementById("storeName").value.trim();
+ const phone=document.getElementById("sellerPhone").value.trim();
+ const address=document.getElementById("sellerAddress").value.trim();
+ if(!name||!store||!phone||!address){toast("সব তথ্য পূরণ করুন");return}
+ sellers.push({id:Date.now(),name,store,phone,address,status:"অনুমোদনের অপেক্ষায়"});
+ save("pb_sellers",sellers);toast("বিক্রেতার আবেদন জমা হয়েছে");
+}
+function submitProduct(){
+ const store=document.getElementById("productStore").value.trim();
+ const name=document.getElementById("newProductName").value.trim();
+ const price=Number(document.getElementById("newProductPrice").value);
+ const category=document.getElementById("newProductCategory").value;
+ const image=document.getElementById("newProductImage").value.trim()||"https://placehold.co/400x300?text=Product";
+ const description=document.getElementById("newProductDescription").value.trim();
+ if(!store||!name||price<=0){toast("দোকানের নাম, পণ্যের নাম ও সঠিক দাম দিন");return}
+ const seller=sellers.find(s=>s.store.toLowerCase()===store.toLowerCase()&&s.status==="অনুমোদিত");
+ if(!seller){toast("এই দোকানটি এখনো অ্যাডমিন অনুমোদন পায়নি");return}
+ productRequests.push({id:Date.now(),store,name,price,category,image,description,status:"অনুমোদনের অপেক্ষায়"});
+ save("pb_product_requests",productRequests);toast("পণ্য অনুমোদনের জন্য পাঠানো হয়েছে");
+}
+function renderAdmin(){
+ document.getElementById("commission").value=commission;
+ document.getElementById("sellerRequests").innerHTML=sellers.length?sellers.map(s=>`
+ <div class="item"><b>${safe(s.store)}</b> — ${safe(s.name)} — ${safe(s.phone)}
+ <span class="status">${s.status}</span>
+ ${s.status!=="অনুমোদিত"?`<button class="btn green" onclick="approveSeller(${s.id})">অনুমোদন</button>`:`<button class="btn red" onclick="rejectSeller(${s.id})">বাতিল</button>`}</div>`).join(""):"কোনো আবেদন নেই";
+ document.getElementById("productRequests").innerHTML=productRequests.length?productRequests.map(p=>`
+ <div class="item"><b>${safe(p.name)}</b> — ৳${p.price} — ${safe(p.store)}
+ <span class="status">${p.status}</span>
+ ${p.status!=="অনুমোদিত"?`<button class="btn green" onclick="approveProduct(${p.id})">প্রকাশ অনুমোদন</button><button class="btn red" onclick="rejectProduct(${p.id})">বাতিল</button>`:""}</div>`).join(""):"কোনো আবেদন নেই";
+ document.getElementById("orderRequests").innerHTML=orders.length?orders.map(o=>`
+ <div class="item"><b>অর্ডার #${o.id}</b><br>
+ ${safe(o.name)} | ${safe(o.phone)}<br>${safe(o.address)}<br>
+ পেমেন্ট: ${safe(o.payment)} | মোট: ৳${o.total}<br>
+ পণ্য: ${o.items.map(x=>safe(x.name)+" × "+x.qty).join(", ")}<br>
+ <span class="status">${o.status}</span>
+ ${o.status==="অনুমোদনের অপেক্ষায়"?`<button class="btn green" onclick="approveOrder(${o.id})">কনফার্ম</button><button class="btn red" onclick="cancelOrder(${o.id})">বাতিল</button>`:""}
+ </div>`).join(""):"কোনো অর্ডার নেই";
+ document.getElementById("adminMessages").innerHTML=messages.map(m=>`<div class="item"><b>${safe(m.from)}:</b> ${safe(m.text)}</div>`).join("")||"কোনো মেসেজ নেই";
+}
+function approveSeller(id){
+ const s=sellers.find(x=>x.id===id);if(s)s.status="অনুমোদিত";
+ save("pb_sellers",sellers);renderAdmin();toast("বিক্রেতা অনুমোদিত");
+}
+function rejectSeller(id){
+ const s=sellers.find(x=>x.id===id);if(s)s.status="বাতিল";
+ save("pb_sellers",sellers);renderAdmin();
+}
+function approveProduct(id){
+ const p=productRequests.find(x=>x.id===id);if(!p)return;
+ p.status="অনুমোদিত";products.push({...p,id:Date.now()});
+ save("pb_products",products);save("pb_product_requests",productRequests);
+ renderAdmin();renderProducts();toast("পণ্য প্রকাশিত হয়েছে");
+}
+function rejectProduct(id){
+ const p=productRequests.find(x=>x.id===id);if(p)p.status="বাতিল";
+ save("pb_product_requests",productRequests);renderAdmin();
+}
+function approveOrder(id){
+ const o=orders.find(x=>x.id===id);if(o)o.status="অ্যাডমিন অনুমোদিত";
+ save("pb_orders",orders);renderAdmin();toast("অর্ডার অনুমোদিত");
+}
+function cancelOrder(id){
+ const o=orders.find(x=>x.id===id);if(o)o.status="বাতিল";
+ save("pb_orders",orders);renderAdmin();
+}
+function saveCommission(){
+ commission=Math.max(0,Math.min(100,Number(document.getElementById("commission").value)));
+ save("pb_commission",commission);toast("কমিশন সংরক্ষিত: "+commission+"%");
+}
+function sendMessage(){
+ const text=document.getElementById("chatMessage").value.trim();
+ if(!text)return;
+ messages.push({from:"ক্রেতা",text,time:Date.now()});
+ save("pb_messages",messages);
+ document.getElementById("chatMessage").value="";
+ renderMessages();toast("ডেমো মেসেজ যোগ হয়েছে");
+}
+function renderMessages(){
+ document.getElementById("messages").innerHTML=messages.map(m=>
+ `<div class="item"><b>${safe(m.from)}:</b> ${safe(m.text)}</div>`).join("")||"এখনো কোনো মেসেজ নেই";
+}
+renderCategories();renderProducts();updateCartCount();
 </script>
 </body>
 </html>
