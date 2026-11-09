@@ -374,3 +374,29 @@ renderAll();
 </script>
 </body>
 </html>
+.product {
+  cursor: pointer;
+}
+.product:hover {
+  box-shadow: 0 4px 15px #0002;
+  transform: translateY(-2px);
+}
+.product-details {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: #fff;
+  overflow-y: auto;
+  padding: 20px;
+  display: none;
+}
+.product-details.show {
+  display: block;
+}
+.product-details img {
+  width: 100%;
+  max-height: 350px;
+  object-fit: contain;
+  background: #f1f2f4;
+  border-radius: 10px;
+}
