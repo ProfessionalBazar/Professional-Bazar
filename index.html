@@ -3,374 +3,302 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#138A45">
 <title>Professional Bazar</title>
 <style>
-:root{--orange:#f36b21;--ash:#f1f2f4;--dark:#30343b;--white:#fff}
+:root{--green:#138A45;--dark:#08652F;--bg:#F3F6F4}
 *{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;background:var(--ash);color:#292929}
-header{background:var(--white);padding:12px 16px;display:flex;align-items:center;gap:12px;position:sticky;top:0;z-index:10;box-shadow:0 2px 8px #0002}
-.menu-btn{font-size:25px;background:var(--dark);padding:7px 12px}
-.logo{font-weight:bold;color:var(--orange);font-size:21px;white-space:nowrap}
-.search{display:flex;flex:1;min-width:80px}
-.search input{margin:0;border-radius:6px 0 0 6px}
-.search button{border-radius:0 6px 6px 0}
-.cart-btn{white-space:nowrap}
-input,select,textarea{width:100%;padding:12px;border:1px solid #ddd;border-radius:6px;margin:6px 0 12px;font:inherit}
-button{border:0;background:var(--orange);color:white;padding:10px 14px;border-radius:5px;cursor:pointer;font-weight:bold}
-button:hover{opacity:.88}
-.drawer{position:fixed;z-index:20;top:0;bottom:0;left:0;width:285px;max-width:85%;background:var(--dark);color:white;overflow-y:auto;transform:translateX(-105%);transition:.25s;padding:15px}
-.drawer.open{transform:translateX(0)}
-.drawer-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:15px;color:#ff9b60;font-weight:bold}
-.drawer a{display:block;color:white;text-decoration:none;padding:12px;border-bottom:1px solid #ffffff18;font-size:14px}
-.drawer a:hover{background:var(--orange)}
-.overlay{display:none;position:fixed;inset:0;background:#0008;z-index:15}
-.overlay.show{display:block}
-main{padding:18px;max-width:1500px;margin:auto}
-.hero{background:linear-gradient(110deg,#f36b21,#ff9b54);color:white;padding:32px 24px;border-radius:12px;margin-bottom:22px}
-.hero h1{font-size:29px;margin:0 0 8px}
-.section-title{display:flex;justify-content:space-between;align-items:center;margin:24px 0 14px}
-.section-title h2{margin:0;font-size:21px}
-.categories{display:grid;grid-template-columns:repeat(auto-fit,minmax(125px,1fr));gap:10px}
-.category{background:white;border-radius:8px;padding:15px 8px;text-align:center;font-size:13px;font-weight:bold;cursor:pointer;border:1px solid #eee}
-.category:hover{border-color:var(--orange);color:var(--orange)}
-.products{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
-.product{background:white;border-radius:9px;padding:10px;box-shadow:0 2px 7px #0000000b;overflow:hidden}
-.product img{width:100%;height:175px;object-fit:cover;border-radius:6px;background:#eee}
-.product h3{font-size:14px;min-height:32px;margin:10px 0 5px}
-.price{color:var(--orange);font-weight:bold}
-.page{display:none}
-.page.active{display:block}
-.panel{background:white;border-radius:9px;padding:18px;margin:12px 0}
-.item{padding:12px 0;border-bottom:1px solid #eee}
-.small{font-size:12px;color:#777}
-footer{text-align:center;padding:25px;color:#777}
-@media(max-width:900px){.products{grid-template-columns:repeat(3,minmax(0,1fr))}}
-@media(max-width:600px){
- header{padding:9px;gap:7px;flex-wrap:wrap}
- .logo{font-size:17px}
- .menu-btn{font-size:21px;padding:7px 10px}
- .search{order:3;flex-basis:100%}
- .products{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
- .product img{height:135px}
- main{padding:11px}
- .hero{padding:23px 16px}
- .hero h1{font-size:23px}
+body{margin:0;font-family:Arial,sans-serif;background:var(--bg);color:#222}
+header{background:var(--green);color:white;padding:12px;position:sticky;top:0;z-index:5}
+.top{display:flex;align-items:center;gap:9px}
+.menu{font-size:25px;border:0;background:none;color:white}
+.logo{font-weight:bold;font-size:17px;white-space:nowrap}
+.search{display:flex;flex:1;background:white;border-radius:5px;overflow:hidden}
+.search input{width:100%;min-width:0;padding:10px;border:0;outline:0}
+.search button{border:0;padding:0 10px}
+.carthead{color:white;text-decoration:none;font-size:20px}
+main{max-width:1200px;margin:auto;padding:12px 12px 85px}
+.banner{background:linear-gradient(120deg,#138A45,#08652F);color:white;padding:25px 16px;border-radius:10px}
+.banner h2{margin:0 0 8px}
+h2.section{font-size:19px;margin:22px 0 12px}
+.products{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.product{background:white;border-radius:8px;overflow:hidden;box-shadow:0 1px 4px #0001}
+.product img{width:100%;height:145px;object-fit:cover;background:#eee}
+.info{padding:10px}
+.product h3{font-size:14px;margin:0 0 7px}
+.seller{font-size:12px;color:#777;margin:5px 0}
+.price{color:var(--green);font-weight:bold;font-size:17px}
+.old{color:#999;text-decoration:line-through;font-size:12px}
+.stock{color:var(--green);font-size:12px;margin-top:5px}
+.btn{background:var(--green);color:white;border:0;border-radius:5px;padding:10px;cursor:pointer}
+.btn.dark{background:#333}
+.actions{display:flex;gap:5px;margin-top:9px}
+.actions button{flex:1;font-size:12px}
+.bottom{position:fixed;bottom:0;left:0;right:0;background:white;border-top:1px solid #ddd;display:flex;justify-content:space-around;padding:9px 0;z-index:6}
+.bottom button{border:0;background:none;color:#555;font-size:11px}
+.bottom button.active{color:var(--green);font-weight:bold}
+.bottom span{display:block;font-size:20px;margin-bottom:3px}
+.overlay,.modal{display:none;position:fixed;inset:0;background:#0007;z-index:10}
+.overlay.show,.modal.show{display:block}
+.sidebar{width:min(290px,85vw);height:100%;background:white;padding:15px;overflow:auto}
+.sidehead,.panelhead{display:flex;justify-content:space-between;align-items:center}
+.sideitem{display:block;padding:14px 5px;border-bottom:1px solid #eee;cursor:pointer}
+.close{font-size:24px;border:0;background:none}
+.modal{z-index:20;overflow:auto;padding:15px}
+.modalbox{background:white;border-radius:10px;padding:18px;max-width:550px;margin:25px auto;max-height:90vh;overflow:auto}
+.detail-img{height:220px;background:#eee;display:flex;align-items:center;justify-content:center;margin:12px 0}
+.detail-img img{max-width:100%;max-height:100%;object-fit:contain}
+.account-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.account-item{padding:13px 9px;border:1px solid #e5e9e6;border-radius:7px;background:white;text-align:left;cursor:pointer}
+.account-item b{display:block;font-size:13px}
+.account-item small{color:#777}
+.field{width:100%;padding:11px;margin:6px 0 12px;border:1px solid #ddd;border-radius:5px}
+.notice{background:#edf7ef;color:#315d3c;padding:10px;border-radius:6px;font-size:12px;margin-top:18px}
+@media(min-width:650px){
+.products{grid-template-columns:repeat(4,1fr)}
+.product img{height:180px}
+.account-grid{grid-template-columns:repeat(3,1fr)}
 }
 </style>
 </head>
 <body>
 
 <header>
-  <button class="menu-btn" onclick="toggleMenu()">☰</button>
-  <div class="logo">PROFESSIONAL BAZAR</div>
-  <div class="search">
-    <input id="search" placeholder="Search for products..." oninput="renderProducts()">
-    <button onclick="renderProducts()">Search</button>
-  </div>
-  <button class="cart-btn" onclick="showPage('cart')">🛒 <span id="cartCount">0</span></button>
+<div class="top">
+<button class="menu" onclick="openMenu()">☰</button>
+<div class="logo">Professional Bazar</div>
+<div class="search">
+<input id="search" placeholder="Search products..." oninput="renderProducts()">
+<button onclick="renderProducts()">⌕</button>
+</div>
+<a class="carthead" href="#" onclick="showCart();return false">🛒 <span id="cartCount">0</span></a>
+</div>
 </header>
 
-<div class="overlay" id="overlay" onclick="toggleMenu()"></div>
-
-<aside class="drawer" id="drawer">
-  <div class="drawer-head">
-    <span>PROFESSIONAL BAZAR</span>
-    <button onclick="toggleMenu()">✕</button>
-  </div>
-  <a href="#" onclick="go('home')">01. Home</a>
-  <a href="#" onclick="go('dashboard')">02. Dashboard</a>
-  <a href="#" onclick="go('categories')">03. All Categories</a>
-  <a href="#" onclick="go('products')">04. All Products</a>
-  <a href="#" onclick="go('products')">05. Search Products</a>
-  <a href="#" onclick="go('cart')">06. Shopping Cart</a>
-  <a href="#" onclick="go('orders')">07. My Orders</a>
-  <a href="#" onclick="go('seller')">08. Seller Registration</a>
-  <a href="#" onclick="go('sellerDashboard')">09. Seller Dashboard</a>
-  <a href="#" onclick="go('upload')">10. Upload Products</a>
-  <a href="#" onclick="go('chat')">11. Customer Chat</a>
-  <a href="#" onclick="go('notifications')">12. Notifications</a>
-  <a href="#" onclick="go('payments')">13. Payment Methods</a>
-  <a href="#" onclick="go('commission')">14. Commission & Earnings</a>
-  <a href="#" onclick="go('admin')">15. Admin Panel</a>
-  <a href="#" onclick="go('ordersAdmin')">16. Order Approval</a>
-  <a href="#" onclick="go('sellerApproval')">17. Seller Approval</a>
-  <a href="#" onclick="go('productApproval')">18. Product Approval</a>
-  <a href="#" onclick="go('settings')">19. Reports & Settings</a>
-</aside>
-
 <main>
-<section id="home" class="page active">
-  <div class="hero">
-    <h1>Welcome to Professional Bazar!</h1>
-    <p>Your Trusted Online Shopping Marketplace</p>
-    <button onclick="showPage('products')">Shop Now</button>
-  </div>
-  <div class="section-title"><h2>Shop by Category</h2></div>
-  <div id="homeCategories" class="categories"></div>
-  <div class="section-title"><h2>Featured Products</h2></div>
-  <div id="homeProducts" class="products"></div>
+<section class="banner">
+<h2>Welcome to Professional Bazar</h2>
+<p>Shop More, Save More!</p>
 </section>
 
-<section id="dashboard" class="page">
-  <h2>Dashboard</h2>
-  <div class="panel">Welcome to Professional Bazar. Explore products and manage your shopping.</div>
-</section>
+<h2 class="section">Hot Deals</h2>
+<div class="products" id="hot"></div>
 
-<section id="categories" class="page">
-  <h2>All Categories</h2><div id="allCategories" class="categories"></div>
-</section>
+<h2 class="section">New Arrivals</h2>
+<div class="products" id="new"></div>
 
-<section id="products" class="page">
-  <h2>All Products</h2><div id="productList" class="products"></div>
-</section>
+<h2 class="section">Recommended Products</h2>
+<div class="products" id="recommended"></div>
 
-<section id="cart" class="page">
-  <h2>Shopping Cart</h2><div id="cartItems" class="panel"></div>
-  <h3 id="cartTotal">Total: ৳0</h3>
-  <button onclick="showPage('checkout')">Proceed to Checkout</button>
-</section>
-
-<section id="checkout" class="page">
-  <h2>Checkout</h2>
-  <div class="panel">
-    <label>Full Name</label><input id="buyerName" placeholder="Your name">
-    <label>Phone Number</label><input id="buyerPhone" placeholder="01XXXXXXXXX">
-    <label>Delivery Address</label><textarea id="buyerAddress" placeholder="Your full address"></textarea>
-    <label>Payment Method</label>
-    <select id="payment">
-      <option>Cash on Delivery</option><option>bKash</option>
-      <option>Nagad</option><option>Rocket</option>
-    </select>
-    <button onclick="placeOrder()">Place Order</button>
-  </div>
-</section>
-
-<section id="orders" class="page">
-  <h2>My Orders</h2><div id="myOrders" class="panel"></div>
-</section>
-
-<section id="seller" class="page">
-  <h2>Seller Registration</h2>
-  <div class="panel">
-    <label>Business / Seller Name</label><input id="sellerName">
-    <label>Phone Number</label><input id="sellerPhone">
-    <label>Business Address</label><textarea id="sellerAddress"></textarea>
-    <button onclick="applySeller()">Submit Application</button>
-    <p class="small">Your seller account requires admin approval.</p>
-  </div>
-</section>
-
-<section id="sellerDashboard" class="page">
-  <h2>Seller Dashboard</h2>
-  <div class="panel">Seller tools are available after admin approval.</div>
-  <button onclick="showPage('upload')">Upload Product</button>
-</section>
-
-<section id="upload" class="page">
-  <h2>Upload Products</h2>
-  <div class="panel">
-    <label>Approved Seller Name</label><input id="uploadSeller">
-    <label>Product Name</label><input id="newProduct">
-    <label>Category</label><select id="newCategory"></select>
-    <label>Price (BDT)</label><input id="newPrice" type="number">
-    <label>Image URL</label><input id="newImage" placeholder="Paste product image URL">
-    <button onclick="uploadProduct()">Submit for Approval</button>
-    <p class="small">Admin approval is required before product publication.</p>
-  </div>
-</section>
-
-<section id="chat" class="page">
-  <h2>Customer Chat</h2>
-  <div class="panel">
-    <label>Your Name</label><input id="chatName">
-    <label>Message</label><textarea id="chatMessage"></textarea>
-    <button onclick="sendMessage()">Send Message</button>
-    <div id="chatList"></div>
-  </div>
-</section>
-
-<section id="notifications" class="page">
-  <h2>Notifications</h2><div id="noticeList" class="panel"></div>
-</section>
-
-<section id="payments" class="page">
-  <h2>Payment Methods</h2>
-  <div class="panel">
-    <p>Cash on Delivery</p><p>bKash</p><p>Nagad</p><p>Rocket</p>
-    <p class="small">Online payment gateways need to be connected before accepting real payments.</p>
-  </div>
-</section>
-
-<section id="commission" class="page">
-  <h2>Commission & Earnings</h2>
-  <div class="panel">
-    <label>Seller Commission (%)</label>
-    <input id="commissionRate" type="number" min="0" max="100">
-    <button onclick="saveCommission()">Save Commission</button>
-    <p id="commissionInfo"></p>
-  </div>
-</section>
-
-<section id="admin" class="page">
-  <h2>Admin Panel</h2>
-  <div class="panel">
-    <p>Seller Applications: <b id="sellerCount">0</b></p>
-    <p>Pending Products: <b id="pendingCount">0</b></p>
-    <p>Orders: <b id="orderCount">0</b></p>
-    <p class="small">Demo panel only. Secure admin login will be added with the backend.</p>
-  </div>
-</section>
-
-<section id="sellerApproval" class="page">
-  <h2>Seller Approval</h2><div id="sellerApplications" class="panel"></div>
-</section>
-
-<section id="productApproval" class="page">
-  <h2>Product Approval</h2><div id="pendingProducts" class="panel"></div>
-</section>
-
-<section id="ordersAdmin" class="page">
-  <h2>Order Approval</h2><div id="adminOrders" class="panel"></div>
-</section>
-
-<section id="settings" class="page">
-  <h2>Reports & Settings</h2>
-  <div class="panel">Theme: Orange, Ash & White<br>Currency: BDT<br>Commission: <span id="settingCommission"></span>%</div>
-</section>
+<div class="notice">
+Demo version: products and cart are saved in this browser only.
+Real orders, seller approval, messaging and online payments require secure backend setup.
+</div>
 </main>
 
-<footer>
-  <b>PROFESSIONAL BAZAR</b><br>
-  Cash on Delivery | bKash | Nagad | Rocket<br>
-  © 2026 Professional Bazar. All Rights Reserved.
-</footer>
+<div class="overlay" id="sidebar" onclick="if(event.target===this)closeMenu()">
+<nav class="sidebar">
+<div class="panelhead">
+<b>Professional Bazar</b>
+<button class="close" onclick="closeMenu()">×</button>
+</div>
+<div class="sideitem" onclick="home()">Home</div>
+<div class="sideitem" onclick="categories()">All Categories</div>
+<div class="sideitem" onclick="showAccount()">My Account</div>
+<div class="sideitem" onclick="showCart()">My Cart</div>
+<div class="sideitem" onclick="showAdmin()">Admin Panel (Demo)</div>
+</nav>
+</div>
+
+<div class="modal" id="modal" onclick="if(event.target===this)closeModal()">
+<div class="modalbox" id="modalbox"></div>
+</div>
+
+<nav class="bottom">
+<button class="active" onclick="home()"><span>⌂</span>Home</button>
+<button onclick="simplePage('Messages','Messages will be available after backend setup.')"><span>✉</span>Messages</button>
+<button onclick="showProducts()"><span>▦</span>Products</button>
+<button onclick="showCart()"><span>🛒</span>Cart</button>
+<button onclick="showAccount()"><span>♙</span>Account</button>
+</nav>
 
 <script>
-const categories=[
-"Food & Grocery","Cosmetics","Bags","Electronics","Shoes","Fashion",
-"Mobile Accessories","Home & Kitchen","Watches & Jewelry","Baby & Toys",
-"Sports & Fitness","Books & Stationery","Furniture","Automotive",
-"Health & Personal Care","Pet Supplies","Computer & Laptop","Gifts & Lifestyle"
+const starter=[
+{id:1,name:"Everyday Backpack",seller:"Professional Store",price:850,old:1000,category:"Bags",stock:12,image:"https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600",description:"Everyday backpack."},
+{id:2,name:"Wireless Headphones",seller:"Tech Store",price:1250,old:1500,category:"Electronics",stock:8,image:"https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600",description:"Wireless headphones."},
+{id:3,name:"Beauty Care Set",seller:"Beauty Shop",price:690,old:790,category:"Cosmetics",stock:15,image:"https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=600",description:"Beauty care set."},
+{id:4,name:"Casual Sneakers",seller:"Shoe House",price:1450,old:1700,category:"Shoes",stock:6,image:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600",description:"Comfortable casual sneakers."}
 ];
 
-const demo=[
-["Wireless Headphones","Electronics",1250,"https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500"],
-["Ladies Handbag","Bags",950,"https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=500"],
-["Sports Shoes","Shoes",1450,"https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500"],
-["Smart Watch","Watches & Jewelry",1800,"https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500"],
-["Sunglasses","Fashion",550,"https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=500"],
-["Camera","Electronics",8500,"https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=500"],
-["Cosmetic Products","Cosmetics",750,"https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=500"],
-["Home Decor","Home & Kitchen",1200,"https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=500"],
-["Backpack","Bags",1100,"https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=500"],
-["Mobile Phone","Electronics",14500,"https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=500"],
-["Perfume","Health & Personal Care",950,"https://images.unsplash.com/photo-1541643600914-78b084683601?w=500"],
-["Gift Box","Gifts & Lifestyle",650,"https://images.unsplash.com/photo-1549465220-1a8b9238cd48?w=500"]
-];
+let products=JSON.parse(localStorage.getItem("pb_products")||"null")||starter;
+let cart=JSON.parse(localStorage.getItem("pb_cart")||"[]");
 
-function read(k,d){try{return JSON.parse(localStorage.getItem(k))??d}catch(e){return d}}
-function save(k,v){localStorage.setItem(k,JSON.stringify(v))}
-let products=read("pb_products",demo.map((p,i)=>({id:i+1,name:p[0],category:p[1],price:p[2],image:p[3],approved:true,seller:"Professional Bazar"})));
-let cart=read("pb_cart",[]),orders=read("pb_orders",[]);
-let sellers=read("pb_sellers",[]),messages=read("pb_messages",[]);
-let notices=read("pb_notices",[]),commission=Number(localStorage.getItem("pb_commission")||10);
-
-function toggleMenu(){
- document.getElementById("drawer").classList.toggle("open");
- document.getElementById("overlay").classList.toggle("show");
+function save(){
+localStorage.setItem("pb_products",JSON.stringify(products));
+localStorage.setItem("pb_cart",JSON.stringify(cart));
+updateCart();
 }
-function go(id){toggleMenu();showPage(id)}
-function showPage(id){
- document.querySelectorAll(".page").forEach(x=>x.classList.remove("active"));
- document.getElementById(id).classList.add("active");
- renderAll();window.scrollTo(0,0);
+function esc(s){
+return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 }
-function esc(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
-function categoryHTML(){return categories.map(c=>`<div class="category" onclick="filterCategory('${c}')">${c}</div>`).join("")}
-function filterCategory(c){showPage("products");document.getElementById("search").value=c;renderProducts()}
-function card(p){return `<div class="product">
-<img src="${esc(p.image||"")}" alt="${esc(p.name)}" onerror="this.style.display='none'">
-<h3>${esc(p.name)}</h3><div class="small">${esc(p.category)}</div>
-<p class="price">৳${Number(p.price).toLocaleString("en-BD")}</p>
-<button onclick="addCart(${p.id})">Add to Cart</button></div>`}
+function updateCart(){
+document.getElementById("cartCount").textContent=cart.reduce((n,x)=>n+x.qty,0);
+}
+function card(p){
+return `<article class="product" onclick="detail(${p.id})">
+<img src="${esc(p.image)}" alt="${esc(p.name)}" onerror="this.style.display='none'">
+<div class="info">
+<h3>${esc(p.name)}</h3>
+<div class="seller">Seller: ${esc(p.seller)}</div>
+<div class="price">৳${p.price} <span class="old">৳${p.old||""}</span></div>
+<div class="stock">${p.stock>0?"In Stock":"Out of Stock"}</div>
+<div class="actions">
+<button class="btn" onclick="event.stopPropagation();addCart(${p.id})">Add to Cart</button>
+<button class="btn dark" onclick="event.stopPropagation();detail(${p.id})">View</button>
+</div>
+</div></article>`;
+}
 function renderProducts(){
- let q=document.getElementById("search").value.toLowerCase();
- let list=products.filter(p=>p.approved&&(p.name.toLowerCase().includes(q)||p.category.toLowerCase().includes(q)));
- document.getElementById("productList").innerHTML=list.map(card).join("")||"No products found.";
- document.getElementById("homeProducts").innerHTML=products.filter(p=>p.approved).map(card).join("");
+let q=document.getElementById("search").value.toLowerCase();
+let list=products.filter(p=>(p.name+" "+p.category+" "+p.seller).toLowerCase().includes(q));
+document.getElementById("hot").innerHTML=list.slice(0,4).map(card).join("")||"No products found";
+document.getElementById("new").innerHTML=[...list].reverse().slice(0,4).map(card).join("");
+document.getElementById("recommended").innerHTML=list.slice(0,8).map(card).join("");
+}
+function openMenu(){document.getElementById("sidebar").classList.add("show")}
+function closeMenu(){document.getElementById("sidebar").classList.remove("show")}
+function openModal(html){
+document.getElementById("modalbox").innerHTML=html;
+document.getElementById("modal").classList.add("show");
+}
+function closeModal(){document.getElementById("modal").classList.remove("show")}
+function simplePage(title,msg){
+openModal(`<div class="panelhead"><h2>${title}</h2><button class="close" onclick="closeModal()">×</button></div><p>${msg}</p>`);
+}
+function detail(id){
+let p=products.find(x=>x.id===id);
+if(!p)return;
+openModal(`<div class="panelhead"><h2>Product Details</h2><button class="close" onclick="closeModal()">×</button></div>
+<div class="detail-img"><img src="${esc(p.image)}" alt=""></div>
+<h3>${esc(p.name)}</h3>
+<p>Seller: ${esc(p.seller)}</p>
+<h2 class="price">৳${p.price}</h2>
+<p>${esc(p.description||"Product details will be added soon.")}</p>
+<p>${p.stock>0?"In Stock: "+p.stock:"Out of Stock"}</p>
+<button class="btn" onclick="addCart(${p.id});closeModal()">Add to Cart</button>
+<button class="btn" onclick="addCart(${p.id});showCart()">Buy Now</button>`);
 }
 function addCart(id){
- let p=products.find(x=>x.id===id);if(!p)return;
- let old=cart.find(x=>x.id===id);
- if(old)old.qty++;else cart.push({...p,qty:1});
- save("pb_cart",cart);renderAll();alert("Added to cart!");
+let p=products.find(x=>x.id===id);
+if(!p||p.stock<=0)return alert("Product is out of stock");
+let item=cart.find(x=>x.id===id);
+if(item)item.qty++;
+else cart.push({id,qty:1});
+save();
+alert("Added to cart");
 }
-function renderCart(){
- let total=0;
- document.getElementById("cartItems").innerHTML=cart.map((p,i)=>{
- total+=p.price*p.qty;
- return `<div class="item">${esc(p.name)} — ৳${p.price} × ${p.qty}
- <button onclick="qty(${i},-1)">−</button><button onclick="qty(${i},1)">+</button>
- <button onclick="removeItem(${i})">Remove</button></div>`;
- }).join("")||"Your cart is empty.";
- document.getElementById("cartTotal").innerText="Total: ৳"+total.toLocaleString("en-BD");
- document.getElementById("cartCount").innerText=cart.reduce((s,p)=>s+p.qty,0);
+function showCart(){
+let rows=cart.map(c=>{
+let p=products.find(x=>x.id===c.id);
+return p?`<p>${esc(p.name)} × ${c.qty} — ৳${p.price*c.qty}
+<button onclick="removeCart(${p.id})">Remove</button></p>`:"";
+}).join("");
+let total=cart.reduce((s,c)=>s+(products.find(p=>p.id===c.id)?.price||0)*c.qty,0);
+openModal(`<div class="panelhead"><h2>My Cart</h2><button class="close" onclick="closeModal()">×</button></div>
+${rows||"<p>Your cart is empty.</p>"}
+<h3>Total: ৳${total}</h3>
+<button class="btn" onclick="checkout()">Proceed to Checkout</button>`);
 }
-function qty(i,n){cart[i].qty+=n;if(cart[i].qty<1)cart.splice(i,1);save("pb_cart",cart);renderAll()}
-function removeItem(i){cart.splice(i,1);save("pb_cart",cart);renderAll()}
-function notice(msg){notices.unshift({msg,date:new Date().toLocaleString()});save("pb_notices",notices)}
-function placeOrder(){
- let name=buyerName.value.trim(),phone=buyerPhone.value.trim(),address=buyerAddress.value.trim();
- if(!cart.length)return alert("Your cart is empty.");
- if(!name||!phone||!address)return alert("Complete your delivery details.");
- let order={id:Date.now(),name,phone,address,payment:payment.value,items:[...cart],total:cart.reduce((s,p)=>s+p.price*p.qty,0),status:"Pending"};
- orders.push(order);save("pb_orders",orders);notice("New order received: #"+order.id);
- cart=[];save("pb_cart",cart);alert("Order submitted for admin review.");showPage("orders");
+function removeCart(id){
+cart=cart.filter(x=>x.id!==id);
+save();
+showCart();
 }
-function applySeller(){
- let name=sellerName.value.trim(),phone=sellerPhone.value.trim(),address=sellerAddress.value.trim();
- if(!name||!phone||!address)return alert("Complete all fields.");
- sellers.push({id:Date.now(),name,phone,address,status:"Pending"});
- save("pb_sellers",sellers);notice("New seller application: "+name);
- alert("Application submitted for admin approval.");
+function checkout(){
+openModal(`<h2>Checkout Demo</h2>
+<input class="field" placeholder="Full Name">
+<input class="field" placeholder="Phone Number">
+<textarea class="field" placeholder="Delivery Address"></textarea>
+<p>Payment: Cash on Delivery (Demo)</p>
+<button class="btn" onclick="alert('Demo only: no real order submitted.');closeModal()">Place Demo Order</button>`);
 }
-function uploadProduct(){
- let seller=uploadSeller.value.trim(),name=newProduct.value.trim(),price=Number(newPrice.value);
- if(!sellers.some(s=>s.name.toLowerCase()===seller.toLowerCase()&&s.status==="Approved"))return alert("Admin-approved seller registration is required.");
- if(!name||price<=0)return alert("Enter product name and valid price.");
- products.push({id:Date.now(),seller,name,category:newCategory.value,price,image:newImage.value.trim(),approved:false});
- save("pb_products",products);notice("Product submitted for approval: "+name);
- alert("Product submitted for admin approval.");
+function showAccount(){
+let names=[
+"To Pay","To Receive","To Review","Returns & Cancellations",
+"Professional Land","Professional Run","Professional Jump",
+"Professional Candy","Buy More, Save More","Recently Viewed",
+"Buy & Free Pickup Point","My Affiliate","Help Center",
+"Contact Customer Care","My Reviews","Payment Options"
+];
+let html=names.map(n=>`<button class="account-item" onclick="simplePage('${n}','${n} information will appear here after setup.')"><b>${n}</b><small>Open ${n}</small></button>`).join("");
+openModal(`<div class="panelhead"><h2>My Account</h2><button class="close" onclick="closeModal()">×</button></div>
+<h3>My Orders</h3><div class="account-grid">${html}</div>`);
 }
-function sendMessage(){
- let name=chatName.value.trim(),msg=chatMessage.value.trim();
- if(!name||!msg)return alert("Enter your name and message.");
- messages.push({name,msg,date:new Date().toLocaleString()});
- save("pb_messages",messages);notice("New chat message from "+name);
- chatMessage.value="";renderAll();alert("Message saved in this demo.");
+function categories(){
+let list=["Food","Cosmetics","Bags","Electronics","Shoes","Clothing","Home & Living","Health & Beauty","Baby Products","Sports","Books","Accessories"];
+openModal(`<div class="panelhead"><h2>All Categories</h2><button class="close" onclick="closeModal()">×</button></div>
+${list.map(c=>`<button class="account-item" style="width:100%;margin:4px 0" onclick="filterCategory('${c}')">${c}</button>`).join("")}`);
 }
-function sellerDecision(id,yes){let s=sellers.find(x=>x.id===id);if(!s)return;s.status=yes?"Approved":"Rejected";save("pb_sellers",sellers);renderAll()}
-function productDecision(id,yes){let p=products.find(x=>x.id===id);if(!p)return;if(yes)p.approved=true;else products=products.filter(x=>x.id!==id);save("pb_products",products);renderAll()}
-function orderDecision(id,status){let o=orders.find(x=>x.id===id);if(!o)return;o.status=status;save("pb_orders",orders);renderAll()}
-function saveCommission(){
- let n=Number(commissionRate.value);if(!Number.isFinite(n)||n<0||n>100)return alert("Enter a rate between 0 and 100.");
- commission=n;localStorage.setItem("pb_commission",n);renderAll();alert("Commission saved in this demo.");
+function filterCategory(c){
+document.getElementById("search").value=c;
+closeModal();
+renderProducts();
 }
-function renderAll(){
- homeCategories.innerHTML=categoryHTML();allCategories.innerHTML=categoryHTML();
- newCategory.innerHTML=categories.map(c=>`<option>${c}</option>`).join("");
- renderProducts();renderCart();
- myOrders.innerHTML=orders.map(o=>`<div class="item">Order #${o.id}<br>Total: ৳${o.total}<br>Status: <b>${o.status}</b></div>`).join("")||"No orders yet.";
- sellerApplications.innerHTML=sellers.map(s=>`<div class="item"><b>${esc(s.name)}</b> — ${esc(s.phone)}<br>${s.status}<br><button onclick="sellerDecision(${s.id},true)">Approve</button> <button onclick="sellerDecision(${s.id},false)">Reject</button></div>`).join("")||"No applications.";
- pendingProducts.innerHTML=products.filter(p=>!p.approved).map(p=>`<div class="item">${esc(p.name)} — ৳${p.price}<br>${esc(p.seller)}<br><button onclick="productDecision(${p.id},true)">Approve</button> <button onclick="productDecision(${p.id},false)">Reject</button></div>`).join("")||"No pending products.";
- adminOrders.innerHTML=orders.map(o=>`<div class="item">Order #${o.id}<br>${esc(o.name)} — ৳${o.total}<br>${o.payment}<br>Status: ${o.status}<br><button onclick="orderDecision(${o.id,'Approved'})">Approve</button> <button onclick="orderDecision(${o.id,'Rejected'})">Reject</button> <button onclick="orderDecision(${o.id,'Correction Required'})">Return for Correction</button></div>`).join("")||"No orders.";
- noticeList.innerHTML=notices.map(n=>`<div class="item">${esc(n.msg)}<br><span class="small">${n.date}</span></div>`).join("")||"No notifications.";
- chatList.innerHTML=messages.map(m=>`<div class="item"><b>${esc(m.name)}</b>: ${esc(m.msg)}<br><span class="small">${m.date}</span></div>`).join("");
- sellerCount.innerText=sellers.length;pendingCount.innerText=products.filter(p=>!p.approved).length;orderCount.innerText=orders.length;
- commissionRate.value=commission;commissionInfo.innerText="Current demo commission: "+commission+"%";settingCommission.innerText=commission;
+function showAdmin(){
+openModal(`<div class="panelhead"><h2>Admin Panel Demo</h2><button class="close" onclick="closeModal()">×</button></div>
+<p>Demo password: PB2026</p>
+<input id="adminPass" class="field" type="password" placeholder="Enter demo password">
+<button class="btn" onclick="adminLogin()">Login</button>`);
 }
-renderAll();
+function adminLogin(){
+if(document.getElementById("adminPass").value!=="PB2026")return alert("Incorrect password");
+adminForm();
+}
+function adminForm(){
+openModal(`<div class="panelhead"><h2>Add Product</h2><button class="close" onclick="closeModal()">×</button></div>
+<input id="pn" class="field" placeholder="Product Name">
+<input id="ps" class="field" placeholder="Seller Name">
+<input id="pc" class="field" placeholder="Category">
+<input id="pp" class="field" type="number" placeholder="Selling Price">
+<input id="po" class="field" type="number" placeholder="Regular Price">
+<input id="pst" class="field" type="number" placeholder="Stock Quantity">
+<input id="pi" class="field" placeholder="Product Image URL">
+<textarea id="pd" class="field" placeholder="Product Description"></textarea>
+<button class="btn" onclick="addProduct()">Save Product</button>
+<h3>Existing Products</h3>
+${products.map(p=>`<p>${esc(p.name)} — ৳${p.price} <button onclick="deleteProduct(${p.id})">Delete</button></p>`).join("")}`);
+}
+function addProduct(){
+let name=document.getElementById("pn").value.trim();
+let price=Number(document.getElementById("pp").value);
+if(!name||!price)return alert("Enter product name and selling price");
+products.unshift({
+id:Date.now(),name,
+seller:document.getElementById("ps").value||"Professional Store",
+category:document.getElementById("pc").value||"Other",
+price,old:Number(document.getElementById("po").value)||0,
+stock:Number(document.getElementById("pst").value)||0,
+image:document.getElementById("pi").value,
+description:document.getElementById("pd").value
+});
+save();
+renderProducts();
+adminForm();
+}
+function deleteProduct(id){
+if(confirm("Delete this product?")){
+products=products.filter(p=>p.id!==id);
+save();
+renderProducts();
+adminForm();
+}
+}
+function showProducts(){window.scrollTo({top:0,behavior:"smooth"})}
+function home(){closeMenu();closeModal();window.scrollTo({top:0,behavior:"smooth"})}
+
+updateCart();
+renderProducts();
 </script>
 </body>
 </html>
