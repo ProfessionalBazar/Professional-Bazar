@@ -1,107 +1,201 @@
-<!doctype html>
-<html lang="bn">
-<head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#13834b">
-<title>Professional Bazar</title>
-<style>
-:root{--green:#13834b;--deep:#075b34;--mint:#eaf7ef;--ash:#f2f4f3;--ink:#18231d;--muted:#68756e;--line:#e2e9e4;--white:#fff;--shadow:0 8px 28px #153b2410}
-*{box-sizing:border-box}body{margin:0;background:#f7f9f7;color:var(--ink);font-family:system-ui,-apple-system,"Noto Sans Bengali",Arial,sans-serif}button,input,select,textarea{font:inherit}button{cursor:pointer;border:0}.top{height:66px;background:white;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:14px;padding:0 20px;position:sticky;top:0;z-index:5}.brand{display:flex;align-items:center;gap:10px;font-weight:850;color:var(--deep);font-size:19px;white-space:nowrap}.logo{height:38px;width:38px;border-radius:12px;background:var(--green);color:white;display:grid;place-items:center;font-weight:900}.search{max-width:560px;flex:1;display:flex;background:var(--ash);border-radius:12px;padding:4px 8px}.search input{border:0;background:transparent;outline:0;width:100%;padding:8px}.btn{padding:10px 14px;border-radius:10px;background:var(--green);color:white;font-weight:700}.btn:hover{background:var(--deep)}.btn.light{background:var(--mint);color:var(--deep)}.btn.gray{background:#edf0ee;color:#26342b}.layout{display:grid;grid-template-columns:245px minmax(0,1fr);max-width:1440px;margin:auto;min-height:calc(100vh - 66px)}aside{background:#fff;border-right:1px solid var(--line);padding:18px 14px}.profile{display:flex;gap:10px;align-items:center;padding:12px;background:var(--mint);border-radius:14px;margin-bottom:18px}.avatar{width:44px;height:44px;border-radius:50%;background:#d5e9dc;object-fit:cover;display:grid;place-items:center;color:var(--deep);font-weight:800;overflow:hidden}.profile small{display:block;color:var(--muted)}.nav{display:grid;gap:5px}.nav button{background:transparent;text-align:left;padding:11px 12px;border-radius:10px;color:#405047}.nav button.active,.nav button:hover{background:var(--mint);color:var(--deep);font-weight:750}.nav .section{font-size:11px;color:#8a968f;font-weight:800;padding:15px 12px 5px;text-transform:uppercase}main{padding:24px;min-width:0}.hero{background:linear-gradient(115deg,#0a663a,#1ca45d);border-radius:20px;padding:28px;color:white;display:flex;align-items:center;justify-content:space-between;gap:18px;overflow:hidden}.hero h1{margin:0 0 8px;font-size:clamp(24px,4vw,36px)}.hero p{margin:0;color:#e0f5e7}.hero-mark{font-size:76px;opacity:.2}.section-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:24px 0 14px}.section-head h2{font-size:21px;margin:0}.muted{color:var(--muted)}.categories{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px}.cat{background:white;border:1px solid var(--line);padding:15px 8px;border-radius:13px;text-align:center;font-weight:700;color:#33443a}.cat span{display:block;font-size:24px;margin-bottom:6px}.products{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}.product{background:white;border:1px solid var(--line);border-radius:15px;overflow:hidden;box-shadow:var(--shadow)}.product img{width:100%;height:165px;object-fit:cover;background:var(--ash)}.product-body{padding:12px}.product h3{font-size:15px;margin:0 0 6px;min-height:42px}.price{color:var(--deep);font-weight:850;font-size:18px}.product-actions{display:flex;gap:7px;margin-top:10px}.product-actions button{flex:1;padding:8px 5px;border-radius:8px;font-size:13px}.panel{background:white;border:1px solid var(--line);border-radius:15px;padding:18px;margin-bottom:15px}.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.field{display:grid;gap:6px;margin-bottom:12px}.field label{font-weight:700;font-size:13px}.field input,.field select,.field textarea{width:100%;padding:11px;border:1px solid #dbe4dd;border-radius:9px;background:#fff;outline-color:var(--green)}.field textarea{min-height:85px;resize:vertical}.hidden{display:none!important}.tablewrap{overflow:auto}table{width:100%;border-collapse:collapse;min-width:560px}th,td{text-align:left;padding:11px;border-bottom:1px solid var(--line);font-size:14px}th{color:var(--muted);background:#f8faf8}.empty{text-align:center;padding:35px;color:var(--muted)}.pill{display:inline-block;background:var(--mint);color:var(--deep);padding:4px 8px;border-radius:20px;font-size:12px;font-weight:700}.notice{padding:12px;border-radius:10px;background:#fff8df;color:#705516;margin:12px 0;font-size:13px}.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#173d29;color:white;padding:11px 18px;border-radius:10px;z-index:20;box-shadow:var(--shadow)}.mobile-menu{display:none}.footer{text-align:center;padding:30px;color:var(--muted);font-size:13px}
-@media(max-width:1050px){.products{grid-template-columns:repeat(3,minmax(0,1fr))}.categories{grid-template-columns:repeat(3,minmax(0,1fr))}}
-@media(max-width:720px){.top{padding:0 12px;height:58px}.brand{font-size:16px}.search{max-width:none}.top .top-label{display:none}.layout{display:block}aside{display:none;position:fixed;z-index:10;top:58px;bottom:0;width:270px;box-shadow:var(--shadow);overflow:auto}.layout.menu-open aside{display:block}.mobile-menu{display:inline-flex;background:var(--mint);color:var(--deep);padding:9px;border-radius:9px}main{padding:15px}.hero{padding:22px}.hero-mark{display:none}.products{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.product img{height:130px}.categories{grid-template-columns:repeat(3,minmax(0,1fr))}.grid2{grid-template-columns:1fr}.top .btn{padding:8px 10px}}
-@media(max-width:380px){.products{grid-template-columns:1fr 1fr}.brand span:last-child{display:none}}
-</style>
-</head>
-<body>
-<header class="top">
-<button class="mobile-menu" onclick="toggleMenu()">☰</button>
-<div class="brand"><div class="logo">PB</div><span>Professional Bazar</span></div>
-<div class="search"><span>⌕</span><input id="searchInput" placeholder="পণ্য খুঁজুন..." oninput="renderProducts()"></div>
-<button class="btn light" onclick="showPage('cart')">🛒 <span class="top-label">কার্ট</span> <b id="cartCount">0</b></button>
-</header>
-<div class="layout" id="layout">
-<aside>
-<div class="profile"><div class="avatar" id="avatar">PB</div><div><b id="profileName">অতিথি ক্রেতা</b><small id="profileEmail">স্বাগতম</small></div></div>
-<nav class="nav">
-<button class="active" data-page="home" onclick="showPage('home')">⌂　হোম</button>
-<button data-page="products" onclick="showPage('products')">▦　সকল পণ্য</button>
-<button data-page="orders" onclick="showPage('orders')">▤　আমার অর্ডার</button>
-<button data-page="cart" onclick="showPage('cart')">🛒　শপিং কার্ট</button>
-<div class="section">অ্যাকাউন্ট</div>
-<button data-page="profile" onclick="showPage('profile')">◉　আমার প্রোফাইল</button>
-<button data-page="login" onclick="showPage('login')">⇥　লগইন / রেজিস্টার</button>
-<div class="section">ব্যবসা পরিচালনা</div>
-<button data-page="admin" onclick="showPage('admin')">⚙　Admin Dashboard</button>
-<button data-page="seller" onclick="showPage('seller')">▣　Seller Dashboard</button>
-</nav>
-<div class="notice">নিরাপত্তা: Admin সুবিধা চালুর আগে সার্ভার-সাইড role permission সেট করুন।</div>
-</aside>
-<main id="main"></main>
-</div>
-<div class="footer">© <span id="year"></span> Professional Bazar · কেনাকাটা হোক সহজ ও নিরাপদ</div>
-<script src="https://cdn.jsdelivr.net/npm/appwrite@17.0.0"></script>
-<script>
-/* Appwrite project configuration. Public project ID is safe to include in browser code.
-   Never put an Appwrite API key or secret in this file. */
-const CONFIG={
-endpoint:"https://nyc.cloud.appwrite.io/v1",
-projectId:"6aea58b2002a41210e99",
-databaseId:"6aff4d7c003ab6b9eab8",
-bucketId:"6aff62870003c265efa4",
-// Fill these only after confirming the actual TablesDB table IDs and column names:
-productsTableId:"",
-ordersTableId:"",
-profilesTableId:""
+
+/* PROFESSIONAL BAZAR - APPWRITE PRODUCT CONNECTION */
+
+const PB_DATABASE = new Appwrite.Databases(
+    new Appwrite.Client()
+        .setEndpoint("https://nyc.cloud.appwrite.io/v1")
+        .setProject("6aea58b2002a41210e99")
+);
+
+const PB_STORAGE = new Appwrite.Storage(
+    new Appwrite.Client()
+        .setEndpoint("https://nyc.cloud.appwrite.io/v1")
+        .setProject("6aea58b2002a41210e99")
+);
+
+const PB_DB_ID = "6aff4d7c003ab6b9eab8";
+const PB_PRODUCTS_ID = "products";
+const PB_BUCKET_ID = "6aff62870003c265efa4";
+
+/* LOAD PRODUCTS FROM APPWRITE */
+
+async function loadProductsFromAppwrite() {
+    try {
+        const result = await PB_DATABASE.listDocuments(
+            PB_DB_ID,
+            PB_PRODUCTS_ID
+        );
+
+        products.splice(0, products.length);
+
+        for (const doc of result.documents) {
+            let image = "https://placehold.co/400x300/eaf7ef/12834b?text=Product";
+
+            if (doc.imageId) {
+                image = PB_STORAGE.getFileView(
+                    PB_BUCKET_ID,
+                    doc.imageId
+                ).toString();
+            }
+
+            products.push({
+                id: doc.$id,
+                name: doc.name,
+                price: doc.price,
+                category: doc.category,
+                description: doc.description || "",
+                image: image
+            });
+        }
+
+        renderProducts();
+
+    } catch (error) {
+        console.error("Product loading error:", error);
+        alert("Products could not be loaded. Check Appwrite permissions and Collection ID.");
+    }
+}
+
+/* UPLOAD PRODUCT TO APPWRITE */
+
+window.addProduct = async function() {
+
+    if (!currentUser) {
+        alert("Please login before uploading products.");
+        openAuth();
+        return;
+    }
+
+    const name = $("pName").value.trim();
+    const price = Number($("pPrice").value);
+    const category = $("pCategory").value;
+    const description = $("pDescription").value.trim();
+    const file = $("pImage").files[0];
+
+    if (!name || !price || price <= 0) {
+        alert("Enter a valid product name and price.");
+        return;
+    }
+
+    if (file && !file.type.startsWith("image/")) {
+        alert("Please select a valid image.");
+        return;
+    }
+
+    if (file && file.size > 5 * 1024 * 1024) {
+        alert("Image must be smaller than 5 MB.");
+        return;
+    }
+
+    let imageId = "";
+
+    try {
+        alert("Uploading product. Please wait...");
+
+        /* Upload image */
+        if (file) {
+            const fileId = Appwrite.ID.unique();
+
+            const uploaded = await PB_STORAGE.createFile(
+                PB_BUCKET_ID,
+                fileId,
+                Appwrite.InputFile.fromBlob(file, file.name),
+                [
+                    Appwrite.Permission.read(
+                        Appwrite.Role.any()
+                    ),
+                    Appwrite.Permission.update(
+                        Appwrite.Role.user(currentUser.$id)
+                    ),
+                    Appwrite.Permission.delete(
+                        Appwrite.Role.user(currentUser.$id)
+                    )
+                ]
+            );
+
+            imageId = uploaded.$id;
+        }
+
+        /* Save product document */
+        await PB_DATABASE.createDocument(
+            PB_DB_ID,
+            PB_PRODUCTS_ID,
+            Appwrite.ID.unique(),
+            {
+                name: name,
+                description: description,
+                price: price,
+                category: category,
+                imageId: imageId,
+                sellerId: currentUser.$id,
+                status: "active",
+                createdAt: new Date().toISOString()
+            },
+            [
+                Appwrite.Permission.read(Appwrite.Role.any()),
+                Appwrite.Permission.update(
+                    Appwrite.Role.user(currentUser.$id)
+                ),
+                Appwrite.Permission.delete(
+                    Appwrite.Role.user(currentUser.$id)
+                )
+            ]
+        );
+
+        $("pName").value = "";
+        $("pPrice").value = "";
+        $("pDescription").value = "";
+        $("pImage").value = "";
+
+        await loadProductsFromAppwrite();
+
+        alert("Product successfully uploaded!");
+
+    } catch (error) {
+        console.error("Product upload error:", error);
+        alert("Upload failed: " + error.message);
+    }
 };
-let client=null, account=null, storage=null;
-try{if(window.Appwrite){client=new Appwrite.Client().setEndpoint(CONFIG.endpoint).setProject(CONFIG.projectId);account=new Appwrite.Account(client);storage=new Appwrite.Storage(client);}}catch(e){console.warn("Appwrite init:",e)}
-const seed=[
-{id:"p1",name:"স্মার্ট USB ফ্যান",category:"ইলেকট্রনিক্স",price:450,stock:20,image:"https://placehold.co/600x400/eaf7ef/075b34?text=USB+Fan",description:"রিচার্জেবল পোর্টেবল ফ্যান"},
-{id:"p2",name:"প্রিমিয়াম পানির বোতল",category:"হোম ও কিচেন",price:350,stock:30,image:"https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=600",description:"দৈনন্দিন ব্যবহারের বোতল"},
-{id:"p3",name:"কটন টি-শার্ট",category:"ফ্যাশন",price:550,stock:15,image:"https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600",description:"আরামদায়ক কটন টি-শার্ট"},
-{id:"p4",name:"স্কিন কেয়ার সেট",category:"বিউটি",price:780,stock:12,image:"https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=600",description:"দৈনন্দিন স্কিন কেয়ার"}
-];
-let products=JSON.parse(localStorage.getItem("pb_products")||"null")||seed;
-let cart=JSON.parse(localStorage.getItem("pb_cart")||"[]");
-let orders=JSON.parse(localStorage.getItem("pb_orders")||"[]");
-let user=JSON.parse(localStorage.getItem("pb_user")||"null");
-let page="home";
-const categories=[["📱","ইলেকট্রনিক্স"],["👕","ফ্যাশন"],["🍎","ফুড"],["🏠","হোম ও কিচেন"],["💄","বিউটি"],["🎒","অন্যান্য"]];
-const money=n=>"৳"+Number(n||0).toLocaleString("en-US");
-function save(){localStorage.setItem("pb_products",JSON.stringify(products));localStorage.setItem("pb_cart",JSON.stringify(cart));localStorage.setItem("pb_orders",JSON.stringify(orders));localStorage.setItem("pb_user",JSON.stringify(user));updateHeader()}
-function toast(s){let t=document.createElement("div");t.className="toast";t.textContent=s;document.body.append(t);setTimeout(()=>t.remove(),2300)}
-function updateHeader(){document.getElementById("cartCount").textContent=cart.reduce((a,x)=>a+x.qty,0);document.getElementById("profileName").textContent=user?.name||"অতিথি ক্রেতা";document.getElementById("profileEmail").textContent=user?.email||"স্বাগতম";document.getElementById("avatar").innerHTML=user?.photo?`<img src="${user.photo}" style="width:100%;height:100%;object-fit:cover">`:"PB"}
-function toggleMenu(){document.getElementById("layout").classList.toggle("menu-open")}
-function showPage(p){page=p;document.getElementById("layout").classList.remove("menu-open");document.querySelectorAll(".nav button[data-page]").forEach(b=>b.classList.toggle("active",b.dataset.page===p));render()}
-function render(){updateHeader();let m=document.getElementById("main");if(page==="home")m.innerHTML=homeHTML();if(page==="products")m.innerHTML=productsHTML();if(page==="cart")m.innerHTML=cartHTML();if(page==="orders")m.innerHTML=ordersHTML();if(page==="profile")m.innerHTML=profileHTML();if(page==="login")m.innerHTML=loginHTML();if(page==="admin")m.innerHTML=adminHTML();if(page==="seller")m.innerHTML=sellerHTML()}
-function homeHTML(){return `<section class="hero"><div><h1>স্বাগতম Professional Bazar-এ</h1><p>বিশ্বস্ত কেনাকাটার সহজ ঠিকানা। পছন্দের পণ্য কিনুন নিশ্চিন্তে।</p><br><button class="btn" style="background:white;color:#075b34" onclick="showPage('products')">কেনাকাটা শুরু করুন →</button></div><div class="hero-mark">🛍</div></section><div class="section-head"><h2>জনপ্রিয় ক্যাটাগরি</h2></div><div class="categories">${categories.map(c=>`<button class="cat" onclick="filterCategory('${c[1]}')"><span>${c[0]}</span>${c[1]}</button>`).join("")}</div><div class="section-head"><h2>জনপ্রিয় পণ্য</h2><button class="btn light" onclick="showPage('products')">সব দেখুন</button></div><div class="products">${productCards(products.slice(0,8))}</div>`}
-function productsHTML(){return `<div class="section-head"><h2>সকল পণ্য</h2><span class="muted">${products.length}টি পণ্য</span></div><div class="products">${productCards(products)}</div>`}
-function productCards(list){if(!list.length)return `<div class="empty">কোনো পণ্য পাওয়া যায়নি।</div>`;return list.map(p=>`<article class="product"><img src="${safe(p.image)}" alt="${safe(p.name)}" onerror="this.src='https://placehold.co/600x400/eaf7ef/075b34?text=Professional+Bazar'"><div class="product-body"><span class="pill">${safe(p.category)}</span><h3>${safe(p.name)}</h3><div class="price">${money(p.price)}</div><small class="muted">স্টক: ${p.stock??"—"}</small><div class="product-actions"><button class="btn light" onclick="addCart('${p.id}')">কার্টে নিন</button><button class="btn gray" onclick="details('${p.id}')">বিস্তারিত</button></div></div></article>`).join("")}
-function safe(v){return String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
-function filterCategory(c){page="products";render();document.getElementById("searchInput").value=c;renderProducts()}
-function renderProducts(){let q=document.getElementById("searchInput").value.toLowerCase();let filtered=products.filter(p=>(p.name+" "+p.category).toLowerCase().includes(q));let target=document.querySelector("#main .products");if(target)target.innerHTML=productCards(filtered)}
-function addCart(id){let p=products.find(x=>x.id===id);if(!p)return;let x=cart.find(x=>x.id===id);if(x)x.qty++;else cart.push({id,qty:1});save();toast("কার্টে যোগ হয়েছে")}
-function details(id){let p=products.find(x=>x.id===id);if(!p)return;alert(`${p.name}\n${p.description||""}\nমূল্য: ${money(p.price)}\nস্টক: ${p.stock}`)}
-function cartHTML(){let rows=cart.map(x=>{let p=products.find(p=>p.id===x.id);if(!p)return "";return `<tr><td>${safe(p.name)}</td><td>${money(p.price)}</td><td><button class="btn gray" onclick="qty('${x.id}',-1)">−</button> ${x.qty} <button class="btn gray" onclick="qty('${x.id}',1)">+</button></td><td>${money(p.price*x.qty)}</td><td><button class="btn gray" onclick="removeCart('${x.id}')">✕</button></td></tr>`}).join("");let total=cart.reduce((s,x)=>s+(products.find(p=>p.id===x.id)?.price||0)*x.qty,0);return `<div class="section-head"><h2>আপনার শপিং কার্ট</h2></div><div class="panel tablewrap">${cart.length?`<table><thead><tr><th>পণ্য</th><th>দাম</th><th>পরিমাণ</th><th>মোট</th><th></th></tr></thead><tbody>${rows}</tbody></table><div style="text-align:right;padding:18px 4px"><h3>সর্বমোট: ${money(total)}</h3><button class="btn" onclick="checkout()">অর্ডার নিশ্চিত করুন</button></div>`:`<div class="empty">আপনার কার্ট খালি। <button class="btn light" onclick="showPage('products')">পণ্য দেখুন</button></div>`}</div>`}
-function qty(id,d){let x=cart.find(x=>x.id===id);if(x){x.qty+=d;if(x.qty<=0)cart=cart.filter(y=>y.id!==id);save();render()}}
-function removeCart(id){cart=cart.filter(x=>x.id!==id);save();render()}
-function checkout(){if(!cart.length)return;if(!user){toast("অর্ডার করতে আগে লগইন করুন");showPage("login");return}let total=cart.reduce((s,x)=>s+(products.find(p=>p.id===x.id)?.price||0)*x.qty,0);let order={id:"PB"+Date.now(),date:new Date().toLocaleString("bn-BD"),items:cart.map(x=>({...x})),total,status:"নতুন",customer:user.name};orders.unshift(order);cart=[];save();toast("অর্ডারটি এই ডিভাইসে সংরক্ষিত হয়েছে");showPage("orders")}
-function ordersHTML(){return `<div class="section-head"><h2>আমার অর্ডার</h2></div><div class="panel tablewrap">${orders.length?`<table><thead><tr><th>অর্ডার আইডি</th><th>তারিখ</th><th>মোট</th><th>অবস্থা</th></tr></thead><tbody>${orders.map(o=>`<tr><td>${o.id}</td><td>${o.date}</td><td>${money(o.total)}</td><td><span class="pill">${o.status}</span></td></tr>`).join("")}</tbody></table>`:`<div class="empty">এখনো কোনো অর্ডার নেই।</div>`}</div>`}
-function profileHTML(){return `<div class="section-head"><h2>আমার প্রোফাইল</h2></div><div class="panel"><div class="field"><label>প্রোফাইল ছবি</label><input type="file" accept="image/*" id="photoInput" onchange="previewPhoto(event)"></div><div class="field"><label>নাম</label><input id="profName" value="${safe(user?.name||"")}" placeholder="আপনার নাম"></div><div class="field"><label>ইমেইল</label><input id="profEmail" value="${safe(user?.email||"")}" placeholder="আপনার ইমেইল"></div><button class="btn" onclick="saveProfile()">প্রোফাইল সংরক্ষণ</button><button class="btn gray" onclick="logout()">লগআউট</button></div>`}
-let pendingPhoto="";
-function previewPhoto(e){let f=e.target.files[0];if(!f)return;if(f.size>2*1024*1024){toast("ছবির সাইজ ২MB-এর কম রাখুন");return}let r=new FileReader();r.onload=()=>pendingPhoto=r.result;r.readAsDataURL(f)}
-function saveProfile(){user={...(user||{}),name:document.getElementById("profName").value.trim(),email:document.getElementById("profEmail").value.trim(),photo:pendingPhoto||user?.photo||""};save();toast("প্রোফাইল এই ডিভাইসে সংরক্ষিত");render()}
-function loginHTML(){return `<div class="section-head"><h2>লগইন / রেজিস্টার</h2></div><div class="panel" style="max-width:520px"><div class="notice">Appwrite Email/Password authentication চালু থাকলে এই ফর্ম Appwrite-এ অ্যাকাউন্ট তৈরি বা লগইন করবে।</div><div class="field"><label>আপনার নাম (নতুন অ্যাকাউন্টের জন্য)</label><input id="authName" placeholder="নাম"></div><div class="field"><label>ইমেইল</label><input id="authEmail" type="email" placeholder="name@example.com"></div><div class="field"><label>পাসওয়ার্ড</label><input id="authPassword" type="password" placeholder="কমপক্ষে ৮ অক্ষর"></div><div class="product-actions"><button class="btn" onclick="registerUser()">রেজিস্টার</button><button class="btn light" onclick="loginUser()">লগইন</button></div><p class="muted" id="authMessage"></p></div>`}
-async function registerUser(){let name=document.getElementById("authName").value.trim(),email=document.getElementById("authEmail").value.trim(),password=document.getElementById("authPassword").value;if(!account){toast("Appwrite SDK লোড হয়নি");return}try{await account.create(Appwrite.ID.unique(),email,password,name);await account.createEmailPasswordSession(email,password);let a=await account.get();user={name:a.name||name,email:a.email,appwriteId:a.$id};save();toast("রেজিস্ট্রেশন সফল");showPage("profile")}catch(e){document.getElementById("authMessage").textContent=e.message}}
-async function loginUser(){let email=document.getElementById("authEmail").value.trim(),password=document.getElementById("authPassword").value;if(!account)return toast("Appwrite SDK লোড হয়নি");try{await account.createEmailPasswordSession(email,password);let a=await account.get();user={name:a.name,email:a.email,appwriteId:a.$id};save();toast("লগইন সফল");showPage("profile")}catch(e){document.getElementById("authMessage").textContent=e.message}}
-async function logout(){try{if(account)await account.deleteSession("current")}catch(e){}user=null;save();toast("লগআউট হয়েছে");showPage("home")}
-function adminHTML(){return `<div class="section-head"><h2>Admin Dashboard</h2><span class="pill">Local preview mode</span></div><div class="notice">এই সংস্করণে পণ্য যোগ/সম্পাদনা আপনার বর্তমান ব্রাউজারে সংরক্ষিত হয়। নিরাপদ অনলাইন Admin role ও Database write চালুর আগে Table ID, columns এবং permissions যাচাই করতে হবে।</div><div class="panel"><h3>নতুন পণ্য যোগ করুন</h3><div class="grid2"><div class="field"><label>পণ্যের নাম</label><input id="pName" placeholder="পণ্যের নাম"></div><div class="field"><label>ক্যাটাগরি</label><select id="pCategory">${categories.map(c=>`<option>${c[1]}</option>`).join("")}</select></div><div class="field"><label>দাম (৳)</label><input id="pPrice" type="number" min="0" placeholder="0"></div><div class="field"><label>স্টক</label><input id="pStock" type="number" min="0" placeholder="0"></div></div><div class="field"><label>ছবির URL</label><input id="pImage" placeholder="https://..."></div><div class="field"><label>বিবরণ</label><textarea id="pDesc" placeholder="পণ্যের বিবরণ"></textarea></div><button class="btn" onclick="addProduct()">পণ্য যোগ করুন</button></div><div class="panel tablewrap"><h3>পণ্য পরিচালনা (${products.length})</h3><table><thead><tr><th>পণ্য</th><th>দাম</th><th>স্টক</th><th>অ্যাকশন</th></tr></thead><tbody>${products.map(p=>`<tr><td>${safe(p.name)}</td><td>${money(p.price)}</td><td>${p.stock??0}</td><td><button class="btn gray" onclick="editProduct('${p.id}')">এডিট</button> <button class="btn gray" onclick="deleteProduct('${p.id}')">ডিলিট</button></td></tr>`).join("")}</tbody></table></div>`}
-function addProduct(){let name=document.getElementById("pName").value.trim(),price=Number(document.getElementById("pPrice").value);if(!name||!price){toast("পণ্যের নাম ও দাম দিন");return}products.unshift({id:"p"+Date.now(),name,category:document.getElementById("pCategory").value,price,stock:Number(document.getElementById("pStock").value||0),image:document.getElementById("pImage").value||"https://placehold.co/600x400/eaf7ef/075b34?text=Product",description:document.getElementById("pDesc").value});save();render();toast("পণ্য যোগ হয়েছে")}
-function editProduct(id){let p=products.find(x=>x.id===id);if(!p)return;let name=prompt("পণ্যের নাম",p.name);if(name===null)return;let price=Number(prompt("দাম",p.price));if(!price)return;p.name=name;p.price=price;save();render();toast("পণ্য আপডেট হয়েছে")}
-function deleteProduct(id){if(!confirm("পণ্যটি মুছে ফেলবেন?"))return;products=products.filter(p=>p.id!==id);save();render()}
-function sellerHTML(){return `<div class="section-head"><h2>Seller Dashboard</h2></div><div class="grid2"><div class="panel"><h3>মোট পণ্য</h3><div class="price">${products.length}</div></div><div class="panel"><h3>মোট অর্ডার</h3><div class="price">${orders.length}</div></div></div><div class="panel"><h3>বিক্রেতার জন্য</h3><p class="muted">বিক্রেতা অ্যাকাউন্ট, অনুমোদন, কমিশন ও আলাদা পণ্য মালিকানা Backend role এবং Database schema যুক্ত হলে চালু হবে।</p><button class="btn" onclick="showPage('admin')">পণ্য পরিচালনা</button></div>`}
-document.getElementById("searchInput").addEventListener("keydown",e=>{if(e.key==="Enter")showPage("products")});
-document.getElementById("year").textContent=new Date().getFullYear();
-render();
-</script>
-</body></html>
+
+/* SHOW APPWRITE PRODUCTS */
+
+window.renderProducts = function() {
+
+    const filter = $("categoryFilter")?.value || "All";
+
+    const filtered = products.filter(product =>
+        filter === "All" || product.category === filter
+    );
+
+    $("productList").innerHTML = filtered.length
+        ? filtered.map(product => `
+            <div class="card">
+                <img
+                    class="product-img"
+                    src="${escapeHTML(product.image)}"
+                    alt="Product"
+                >
+                <h3>${escapeHTML(product.name)}</h3>
+                <p><b>৳${Number(product.price).toLocaleString("en-BD")}</b></p>
+                <p class="small">${escapeHTML(product.category)}</p>
+                <p>${escapeHTML(product.description || "")}</p>
+                <button class="btn" onclick="buyProduct('${String(product.id).replace(/'/g, "\\'")}')">
+                    Order Now
+                </button>
+            </div>
+        `).join("")
+        : '<div class="card">No products available.</div>';
+
+    $("homeProducts").innerHTML = products.slice(0, 4).map(product => `
+        <div class="card">
+            <img class="product-img" src="${escapeHTML(product.image)}" alt="Product">
+            <h3>${escapeHTML(product.name)}</h3>
+            <b>৳${Number(product.price).toLocaleString("en-BD")}</b>
+            <button class="btn" onclick="showPage('reselling')">View Products</button>
+        </div>
+    `).join("") || '<div class="card">Products will appear here.</div>';
+};
+
+/* LOAD PRODUCTS AFTER LOGIN CHECK */
+
+loadProductsFromAppwrite();
