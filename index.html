@@ -1,201 +1,189 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#087443">
+<title>Professional Bazar</title>
+<style>
+:root{--green:#087443;--green2:#0b9658;--dark:#17231d;--muted:#718078;--bg:#f4f8f5;--white:#fff;--line:#e4ece7;--red:#d64545;--yellow:#f0b429;--shadow:0 8px 28px rgba(20,65,42,.08)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--dark);font-family:system-ui,-apple-system,"Noto Sans Bengali",Arial,sans-serif}button,input,select,textarea{font:inherit}button{cursor:pointer}.app{min-height:100vh}.topbar{height:66px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 22px;position:sticky;top:0;z-index:20}.brand{display:flex;align-items:center;gap:10px;font-weight:800;color:var(--green);font-size:20px}.brand-mark{width:38px;height:38px;border-radius:12px;background:var(--green);color:white;display:grid;place-items:center;font-weight:900}.top-actions{display:flex;align-items:center;gap:10px}.icon-btn{border:1px solid var(--line);background:#fff;border-radius:12px;padding:9px 12px;color:var(--dark)}.layout{display:grid;grid-template-columns:245px minmax(0,1fr);max-width:1500px;margin:auto}.sidebar{padding:18px 14px;border-right:1px solid var(--line);min-height:calc(100vh - 66px);background:#fff;position:sticky;top:66px;height:calc(100vh - 66px);overflow:auto}.user-mini{display:flex;align-items:center;gap:10px;padding:12px;background:#f1f8f3;border-radius:14px;margin-bottom:18px}.avatar{width:42px;height:42px;border-radius:50%;background:#d7efe0;color:var(--green);display:grid;place-items:center;font-weight:800;overflow:hidden;flex:none}.avatar img{width:100%;height:100%;object-fit:cover}.user-mini small,.muted{color:var(--muted)}.nav-label{font-size:11px;font-weight:800;color:#9aa69f;padding:12px 10px 6px;letter-spacing:.08em}.nav-btn{width:100%;display:flex;gap:12px;align-items:center;text-align:left;padding:11px 12px;margin:3px 0;border:0;border-radius:11px;background:transparent;color:#43534a;font-weight:600}.nav-btn:hover,.nav-btn.active{background:#eaf6ee;color:var(--green)}.nav-icon{width:22px;text-align:center;font-size:17px}.main{padding:24px;min-width:0}.page{display:none}.page.active{display:block}.page-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:20px}.page-head h1{font-size:25px;margin:0}.page-head p{margin:5px 0 0;color:var(--muted);font-size:14px}.btn{border:0;border-radius:11px;padding:10px 15px;background:var(--green);color:#fff;font-weight:700}.btn:hover{background:#056238}.btn.light{background:#eaf6ee;color:var(--green)}.btn.outline{background:#fff;color:var(--green);border:1px solid #b8d9c4}.btn.danger{background:#fff0f0;color:var(--red)}.btn.small{padding:7px 10px;font-size:13px}.grid{display:grid;gap:16px}.stats{grid-template-columns:repeat(4,minmax(0,1fr));margin-bottom:20px}.card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:var(--shadow)}.stat-label{color:var(--muted);font-size:13px}.stat-value{font-size:25px;font-weight:800;margin:7px 0}.stat-note{font-size:12px;color:var(--green)}.hero{background:linear-gradient(115deg,#075c38,#0b9658);color:#fff;border-radius:20px;padding:26px;display:flex;justify-content:space-between;align-items:center;gap:18px;margin-bottom:20px}.hero h2{font-size:25px;margin:0 0 8px}.hero p{margin:0;color:#e2f4e8}.hero-bubble{font-size:54px;opacity:.9}.section-title{display:flex;justify-content:space-between;align-items:center;margin:22px 0 12px}.section-title h2{font-size:18px;margin:0}.products{grid-template-columns:repeat(4,minmax(0,1fr))}.product{padding:0;overflow:hidden}.product-img{height:145px;background:linear-gradient(135deg,#e7f3eb,#d4e9dc);display:grid;place-items:center;font-size:52px}.product-body{padding:13px}.product-body h3{font-size:15px;margin:0 0 7px}.price{font-weight:800;color:var(--green)}.product-meta{display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--muted);margin:9px 0}.pill{display:inline-block;padding:4px 8px;border-radius:30px;font-size:11px;font-weight:700;background:#eaf6ee;color:var(--green)}.pill.yellow{background:#fff6dc;color:#9a6b00}.pill.red{background:#fff0f0;color:var(--red)}.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:15px}.filters button{border:1px solid var(--line);background:#fff;border-radius:30px;padding:7px 13px;color:#536158}.filters button.active{background:var(--green);color:#fff;border-color:var(--green)}.job-list{display:grid;gap:12px}.job{display:flex;justify-content:space-between;align-items:center;gap:15px}.job h3{font-size:16px;margin:0 0 5px}.job p{margin:0;color:var(--muted);font-size:13px}.job-pay{font-weight:800;color:var(--green);white-space:nowrap}.profile-cover{background:linear-gradient(120deg,#087443,#16a466);height:120px;border-radius:18px 18px 0 0}.profile-info{display:flex;align-items:end;gap:15px;margin:-35px 20px 15px;position:relative}.profile-info .avatar{width:82px;height:82px;border:4px solid white;font-size:24px}.profile-info h2{margin:0 0 4px}.profile-grid{grid-template-columns:1.2fr .8fr}.field{display:grid;gap:6px;margin-bottom:12px}.field label{font-size:13px;font-weight:700;color:#526158}.field input,.field select,.field textarea{width:100%;border:1px solid #dce6df;border-radius:10px;padding:11px;background:#fff;outline:none}.field input:focus,.field textarea:focus,.field select:focus{border-color:var(--green)}.field textarea{min-height:90px;resize:vertical}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.table-wrap{overflow:auto}table{width:100%;border-collapse:collapse;min-width:560px}th,td{text-align:left;padding:12px;border-bottom:1px solid var(--line);font-size:13px}th{color:var(--muted);font-weight:700;background:#fbfdfb}.empty{text-align:center;padding:30px;color:var(--muted)}.reels-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.reel{min-height:220px;border-radius:16px;background:linear-gradient(145deg,#173c2b,#0b9658);color:#fff;padding:18px;display:flex;flex-direction:column;justify-content:space-between}.reel .play{font-size:40px}.reel h3{margin:8px 0}.reel p{font-size:13px;color:#d8eee0}.notice{padding:12px 14px;border-radius:12px;background:#fff8e5;color:#76580b;font-size:13px;margin-bottom:16px}.support-links{display:flex;gap:10px;flex-wrap:wrap}.bottom-nav{display:none}.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#17231d;color:white;padding:12px 18px;border-radius:12px;box-shadow:var(--shadow);z-index:50;display:none;max-width:90%;text-align:center}.modal-backdrop{display:none;position:fixed;inset:0;background:#10221988;z-index:60;align-items:center;justify-content:center;padding:16px}.modal-backdrop.show{display:flex}.modal{width:min(520px,100%);max-height:90vh;overflow:auto;background:#fff;border-radius:18px;padding:20px}.modal-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:15px}.modal-head h2{font-size:19px;margin:0}.close{border:0;background:#f1f5f2;border-radius:9px;padding:7px 10px}.hidden{display:none!important}
+@media(max-width:1050px){.products{grid-template-columns:repeat(3,minmax(0,1fr))}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(min-width:761px){.mobile-menu-trigger,.mobile-menu-backdrop{display:none!important}}
+.mobile-menu-trigger{display:none}
+.mobile-menu-backdrop{display:none}
+@media(max-width:760px){
+.mobile-menu-trigger{display:inline-flex;align-items:center;justify-content:center;margin-right:8px;min-width:42px}
+.topbar{justify-content:flex-start}
+.brand{flex:1}
+.mobile-menu-backdrop{position:fixed;inset:66px 0 0;background:#10221988;z-index:39}
+body.mobile-menu-open .mobile-menu-backdrop{display:block}
+body.mobile-menu-open .sidebar{display:block;position:fixed;z-index:40;left:0;top:66px;bottom:0;width:min(290px,84vw);height:auto;min-height:0;overflow-y:auto;box-shadow:8px 0 28px #10221922}
+.brand{font-size:17px}.layout{display:block}.sidebar{display:none}.main{padding:16px 13px 90px}.page-head h1{font-size:22px}.hero{padding:20px}.hero h2{font-size:21px}.hero-bubble{font-size:38px}.products{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.product-img{height:115px}.product-body{padding:10px}.stats{gap:10px}.card{padding:14px}.profile-grid{grid-template-columns:1fr}.reels-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.bottom-nav{display:flex;position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid var(--line);z-index:30;justify-content:space-around;padding:7px 3px calc(7px + env(safe-area-inset-bottom))}.bottom-nav button{border:0;background:transparent;color:#738078;font-size:10px;display:grid;gap:3px;justify-items:center;min-width:18%}.bottom-nav button span{font-size:19px}.bottom-nav button.active{color:var(--green);font-weight:800}.form-grid{grid-template-columns:1fr}.job{align-items:flex-start}.job .btn{white-space:nowrap}.top-actions .hide-mobile{display:none}}
+@media(max-width:390px){.products{grid-template-columns:1fr 1fr}.stats .stat-value{font-size:21px}.reels-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="app">
+<header class="topbar">
+  <div class="brand"><div class="brand-mark">PB</div><span>Professional Bazar</span></div>
+  <button class="icon-btn mobile-menu-trigger" id="mobileMenuBtn" aria-label="মেনু খুলুন" aria-expanded="false" onclick="toggleMobileMenu()">☰</button>
+  <div class="top-actions">
+    <button class="icon-btn hide-mobile" onclick="showPage('notifications')">🔔 <span id="notifCount">2</span></button>
+    <button class="icon-btn" onclick="toggleLanguage()" id="langBtn">EN</button>
+    <button class="icon-btn" onclick="showToast('এই সংস্করণটি ডেমো। লগইন সংযোগ পরবর্তী ধাপে যুক্ত হবে।')">👤 <span class="hide-mobile">অ্যাকাউন্ট</span></button>
+  </div>
+</header>
+<div class="mobile-menu-backdrop" id="mobileMenuBackdrop" onclick="closeMobileMenu()"></div>
+<div class="layout">
+<aside class="sidebar" id="mainSidebar">
+  <div class="user-mini"><div class="avatar" id="sideAvatar">আ</div><div><strong id="sideName">Ashraful Islam</strong><br><small>সাধারণ সদস্য · ডেমো</small></div></div>
+  <div class="nav-label">মূল মেনু</div>
+  <button class="nav-btn active" data-page="home" onclick="showPage('home')"><span class="nav-icon">⌂</span>হোম</button>
+  <button class="nav-btn" data-page="reels" onclick="showPage('reels')"><span class="nav-icon">▶</span>রিলস</button>
+  <button class="nav-btn" data-page="reselling" onclick="showPage('reselling')"><span class="nav-icon">🛍</span>রিসেলিং</button>
+  <button class="nav-btn" data-page="jobs" onclick="showPage('jobs')"><span class="nav-icon">💼</span>মাইক্রো জবস</button>
+  <div class="nav-label">আমার অ্যাকাউন্ট</div>
+  <button class="nav-btn" data-page="profile" onclick="showPage('profile')"><span class="nav-icon">◉</span>প্রোফাইল</button>
+  <button class="nav-btn" data-page="dashboard" onclick="showPage('dashboard')"><span class="nav-icon">▦</span>ড্যাশবোর্ড</button>
+  <button class="nav-btn" data-page="wallet" onclick="showPage('wallet')"><span class="nav-icon">৳</span>ওয়ালেট</button>
+  <button class="nav-btn" data-page="orders" onclick="showPage('orders')"><span class="nav-icon">📦</span>অর্ডার</button>
+  <button class="nav-btn" data-page="verification" onclick="showPage('verification')"><span class="nav-icon">✓</span>ভেরিফিকেশন</button>
+  <div class="nav-label">সহায়তা</div>
+  <button class="nav-btn" data-page="support" onclick="showPage('support')"><span class="nav-icon">☏</span>সাপোর্ট / Help Center</button>
+  <button class="nav-btn" data-page="notifications" onclick="showPage('notifications')"><span class="nav-icon">♧</span>নোটিফিকেশন</button>
+  <button class="nav-btn" data-page="policies" onclick="showPage('policies')"><span class="nav-icon">☷</span>নীতিমালা</button>
+</aside>
+<main class="main">
+<section class="page active" id="page-home">
+  <div class="hero"><div><h2>স্বাগতম Professional Bazar-এ!</h2><p>কেনাকাটা করুন, পণ্য রিসেল করুন এবং দক্ষতা দিয়ে আয় করার সুযোগ খুঁজুন।</p><div style="margin-top:17px"><button class="btn" style="background:#fff;color:var(--green)" onclick="showPage('reselling')">পণ্য দেখুন</button> <button class="btn" style="background:#ffffff22;border:1px solid #ffffff66" onclick="showPage('jobs')">জব খুঁজুন</button></div></div><div class="hero-bubble">🛒</div></div>
+  <div class="grid stats">
+    <div class="card"><div class="stat-label">ওয়ালেট ব্যালেন্স</div><div class="stat-value">৳ 0.00</div><div class="stat-note">ডেমো ব্যালেন্স</div></div>
+    <div class="card"><div class="stat-label">মোট অর্ডার</div><div class="stat-value">০</div><div class="stat-note">আপনার অর্ডার</div></div>
+    <div class="card"><div class="stat-label">রেফারেল আয়</div><div class="stat-value">৳ 0</div><div class="stat-note">প্রতি সফল রেফারেলে ৳৫০*</div></div>
+    <div class="card"><div class="stat-label">অ্যাকাউন্ট স্ট্যাটাস</div><div class="stat-value" style="font-size:20px">Unverified</div><div class="stat-note">ভেরিফিকেশন প্রয়োজন</div></div>
+  </div>
+  <div class="section-title"><h2>জনপ্রিয় পণ্য</h2><button class="btn light small" onclick="showPage('reselling')">সব দেখুন →</button></div>
+  <div class="grid products" id="homeProducts"></div>
+  <div class="notice" style="margin-top:18px">* রেফারেল কমিশন, ওয়ালেট ও পেমেন্ট এখানে শুধুই নমুনা। প্রকৃত নিয়ম ও লেনদেন সার্ভার সংযোগের পর কার্যকর হবে।</div>
+</section>
+<section class="page" id="page-reels">
+  <div class="page-head"><div><h1>রিলস</h1><p>পণ্য, টিউটোরিয়াল ও কাজের ভিডিও</p></div><button class="btn" onclick="showToast('ভিডিও আপলোড সুবিধা পরবর্তী ধাপে যুক্ত হবে।')">＋ ভিডিও দিন</button></div>
+  <div class="grid reels-grid">
+    <div class="reel"><div class="play">▶</div><div><span class="pill">টিউটোরিয়াল</span><h3>কীভাবে পণ্য রিসেল করবেন?</h3><p>রিসেলিং শুরু করার প্রাথমিক নির্দেশনা</p></div></div>
+    <div class="reel"><div class="play">▶</div><div><span class="pill">গাইড</span><h3>অর্ডার ম্যানেজমেন্ট</h3><p>অর্ডার ও ডেলিভারি প্রক্রিয়া বুঝে নিন</p></div></div>
+    <div class="reel"><div class="play">▶</div><div><span class="pill">সচেতনতা</span><h3>নিরাপদ অনলাইন কেনাকাটা</h3><p>পণ্য যাচাই ও রিটার্ন নীতিমালা</p></div></div>
+  </div>
+  <div class="notice" style="margin-top:16px">এগুলো ভিডিও প্লেসহোল্ডার। বাস্তব ভিডিও প্লে ও আপলোডের জন্য ভিডিও স্টোরেজ/সার্ভার সংযোগ প্রয়োজন।</div>
+</section>
+<section class="page" id="page-reselling">
+  <div class="page-head"><div><h1>রিসেলিং মার্কেট</h1><p>পণ্য বেছে নিয়ে বিক্রির সুযোগ</p></div><button class="btn" onclick="openModal('addProductModal')">＋ পণ্য যোগ করুন</button></div>
+  <div class="filters" id="categoryFilters"><button class="active" data-cat="সব" onclick="filterProducts('সব',this)">সব</button><button data-cat="ইলেকট্রনিক্স" onclick="filterProducts('ইলেকট্রনিক্স',this)">ইলেকট্রনিক্স</button><button data-cat="ফ্যাশন" onclick="filterProducts('ফ্যাশন',this)">ফ্যাশন</button><button data-cat="হোম" onclick="filterProducts('হোম',this)">হোম</button><button data-cat="অন্যান্য" onclick="filterProducts('অন্যান্য',this)">অন্যান্য</button></div>
+  <div class="grid products" id="allProducts"></div>
+</section>
+<section class="page" id="page-jobs">
+  <div class="page-head"><div><h1>মাইক্রো জবস</h1><p>বৈধ ও নীতিমালা-সম্মত ছোট কাজের তালিকা</p></div><button class="btn" onclick="openModal('postJobModal')">＋ জব পোস্ট</button></div>
+  <div class="notice">কাজে যোগ দেওয়ার আগে নির্দেশনা ও শর্ত পড়ুন। ভুয়া এনগেজমেন্ট, কৃত্রিম ফলোয়ার/লাইক বা প্ল্যাটফর্মের নীতিমালা ভঙ্গ করে এমন কাজ সমর্থিত নয়।</div>
+  <div class="job-list" id="jobList"></div>
+</section>
+<section class="page" id="page-profile">
+  <div class="page-head"><div><h1>আমার প্রোফাইল</h1><p>আপনার ব্যক্তিগত তথ্য ও নেটওয়ার্ক</p></div><span class="pill yellow">Unverified</span></div>
+  <div class="card" style="padding:0;overflow:hidden"><div class="profile-cover"></div><div class="profile-info"><div class="avatar" id="profileAvatar">আ</div><div style="padding-bottom:7px"><h2 id="profileName">Ashraful Islam</h2><span class="muted">সদস্য · Professional Bazar</span></div></div><div style="padding:0 20px 18px"><button class="btn light small" onclick="document.getElementById('avatarUpload').click()">ছবি পরিবর্তন</button><input type="file" id="avatarUpload" accept="image/*" class="hidden" onchange="uploadAvatar(event)"></div></div>
+  <div class="grid profile-grid" style="margin-top:16px">
+    <div class="card"><h3 style="margin-top:0">প্রোফাইল সম্পাদনা</h3><div class="field"><label>নাম</label><input id="editName" value="Ashraful Islam"></div><div class="field"><label>মোবাইল নম্বর</label><input placeholder="01XXXXXXXXX"></div><div class="field"><label>ইমেইল</label><input placeholder="name@example.com"></div><div class="field"><label>আপনার পরিচিতি</label><textarea placeholder="নিজের সম্পর্কে লিখুন"></textarea></div><button class="btn" onclick="saveProfile()">পরিবর্তন সংরক্ষণ</button></div>
+    <div class="card"><h3 style="margin-top:0">আমার নেটওয়ার্ক</h3><div class="grid stats" style="grid-template-columns:1fr 1fr"><div><div class="stat-value">০</div><div class="muted">Followers</div></div><div><div class="stat-value">০</div><div class="muted">My Network</div></div></div><div class="field"><label>আপনার রেফারেল লিংক (ডেমো)</label><input id="refLink" readonly value="https://professionalbazar.example/ref/demo"></div><button class="btn light" onclick="copyReferral()">লিংক কপি করুন</button><hr style="border:0;border-top:1px solid var(--line);margin:18px 0"><button class="btn outline" onclick="showPage('verification')">ভেরিফিকেশন সম্পন্ন করুন</button></div>
+  </div>
+</section>
+<section class="page" id="page-dashboard">
+  <div class="page-head"><div><h1>ড্যাশবোর্ড</h1><p>আপনার বিক্রি, আয় ও কাজের সারাংশ</p></div></div>
+  <div class="grid stats"><div class="card"><div class="stat-label">পণ্য বিক্রি</div><div class="stat-value">৳ 0</div></div><div class="card"><div class="stat-label">মোট লাভ</div><div class="stat-value">৳ 0</div></div><div class="card"><div class="stat-label">রেফারেল কমিশন</div><div class="stat-value">৳ 0</div></div><div class="card"><div class="stat-label">জব আয়</div><div class="stat-value">৳ 0</div></div></div>
+  <div class="card" style="margin-bottom:16px">
+    <h3 style="margin-top:0">Professional Bazar — ব্যবহারকারীর পরিসংখ্যান</h3>
+    <div class="grid stats" style="grid-template-columns:repeat(3,minmax(0,1fr));margin-bottom:8px">
+      <div><div class="stat-value" id="totalUsers">—</div><div class="muted">মোট নিবন্ধিত সদস্য</div></div>
+      <div><div class="stat-value" id="verifiedUsers">—</div><div class="muted">ভেরিফাইড সদস্য</div></div>
+      <div><div class="stat-value" id="activeUsers">—</div><div class="muted">বর্তমানে সক্রিয়</div></div>
+    </div>
+    <div class="notice" id="userStatsStatus" style="margin:10px 0 0">প্রকৃত সংখ্যা দেখাতে নিরাপদ Admin API সংযোগ প্রয়োজন। এখনো কোনো সংখ্যা দেখানো হচ্ছে না।</div>
+  </div>
+  <div class="card"><h3 style="margin-top:0">আয়ের বিবরণ</h3><div class="empty">এখনো কোনো লেনদেন নেই। অ্যাকাউন্ট ও সার্ভার সংযোগ হলে প্রকৃত তথ্য দেখানো হবে।</div></div>
+</section>
+<section class="page" id="page-wallet">
+  <div class="page-head"><div><h1>ওয়ালেট</h1><p>ব্যালেন্স ও উত্তোলন অনুরোধ</p></div></div>
+  <div class="card" style="background:linear-gradient(120deg,#075c38,#0b9658);color:#fff"><div style="opacity:.8">বর্তমান ব্যালেন্স · ডেমো</div><div style="font-size:34px;font-weight:900;margin:8px 0">৳ 0.00</div><small>এই ব্যালেন্স বাস্তব অর্থ নয়।</small></div>
+  <div class="grid profile-grid" style="margin-top:16px"><div class="card"><h3 style="margin-top:0">উত্তোলন অনুরোধ</h3><div class="field"><label>পেমেন্ট মাধ্যম</label><select><option>bKash</option><option>Nagad</option><option>Rocket</option><option>Upay</option></select></div><div class="field"><label>অ্যাকাউন্ট নম্বর</label><input placeholder="মোবাইল/অ্যাকাউন্ট নম্বর"></div><div class="field"><label>পরিমাণ (৳)</label><input type="number" min="1" placeholder="যেমন 500"></div><button class="btn" onclick="showToast('ডেমো: উত্তোলন অনুরোধ গ্রহণ করা হয়নি। পেমেন্ট API এখনো যুক্ত নয়।')">অনুরোধ জমা দিন</button></div><div class="card"><h3 style="margin-top:0">লেনদেন ইতিহাস</h3><div class="empty">কোনো লেনদেন নেই</div></div></div>
+</section>
+<section class="page" id="page-orders">
+  <div class="page-head"><div><h1>অর্ডার ইতিহাস</h1><p>আপনার কেনাকাটার অবস্থা</p></div></div>
+  <div class="card table-wrap"><table><thead><tr><th>অর্ডার আইডি</th><th>তারিখ</th><th>পরিমাণ</th><th>স্ট্যাটাস</th></tr></thead><tbody><tr><td colspan="4" class="empty">এখনো কোনো অর্ডার নেই</td></tr></tbody></table></div>
+</section>
+<section class="page" id="page-verification">
+  <div class="page-head"><div><h1>অ্যাকাউন্ট ভেরিফিকেশন</h1><p>তথ্য জমা দেওয়ার আগে গোপনীয়তা নীতিমালা পড়ুন</p></div><span class="pill yellow">Unverified</span></div>
+  <div class="notice">এটি শুধু ফর্মের নমুনা। এখানে জমা দেওয়া তথ্য কোথাও পাঠানো হয় না। প্রকৃত KYC চালুর আগে সম্মতি, নিরাপদ private storage, সীমিত Admin access ও audit log তৈরি করতে হবে।</div>
+  <div class="card"><h3 style="margin-top:0">ব্যক্তিগত তথ্য</h3><div class="form-grid"><div class="field"><label>জন্মতারিখ</label><input type="date"></div><div class="field"><label>মোবাইল নম্বর</label><input placeholder="01XXXXXXXXX"></div><div class="field"><label>পিতার নাম</label><input placeholder="পিতার নাম"></div><div class="field"><label>মাতার নাম</label><input placeholder="মাতার নাম"></div><div class="field"><label>স্বামী/স্ত্রীর নাম (প্রযোজ্য হলে)</label><input placeholder="নাম"></div><div class="field"><label>NID নম্বর</label><input placeholder="NID নম্বর"></div></div><div class="field"><label>NID-এর সামনের ছবি</label><input type="file" accept="image/*"></div><div class="field"><label>NID-এর পেছনের ছবি</label><input type="file" accept="image/*"></div><label style="display:flex;gap:8px;font-size:13px;margin:12px 0"><input type="checkbox"> আমি তথ্য ব্যবহারের উদ্দেশ্য ও গোপনীয়তা নীতিমালা পড়েছি এবং সম্মতি দিচ্ছি।</label><button class="btn" onclick="showToast('ডেমো ফর্ম: কোনো তথ্য জমা বা সংরক্ষণ করা হয়নি।')">ভেরিফিকেশনের জন্য জমা দিন</button></div>
+</section>
+<section class="page" id="page-support">
+  <div class="page-head"><div><h1>Help Center</h1><p>Professional Bazar ব্যবহারে সহায়তা</p></div></div>
+  <div class="grid profile-grid"><div class="card"><h3 style="margin-top:0">সাধারণ প্রশ্ন</h3><details><summary>কীভাবে পণ্য কিনব?</summary><p class="muted">রিসেলিং মার্কেট থেকে পণ্য বেছে নিন। প্রকৃত অর্ডার ব্যবস্থা পরবর্তী ধাপে যুক্ত হবে।</p></details><hr style="border:0;border-top:1px solid var(--line)"><details><summary>কীভাবে ভেরিফাই করব?</summary><p class="muted">ভেরিফিকেশন পেজে প্রয়োজনীয় তথ্যের ফর্ম রয়েছে। এই সংস্করণে তা জমা হয় না।</p></details><hr style="border:0;border-top:1px solid var(--line)"><details><summary>কীভাবে টাকা উত্তোলন করব?</summary><p class="muted">ওয়ালেটের উত্তোলন ফর্মটি বর্তমানে ডেমো। পেমেন্ট পার্টনারের অনুমোদিত API লাগবে।</p></details></div><div class="card"><h3 style="margin-top:0">সাপোর্ট যোগাযোগ</h3><p class="muted">সাপোর্ট ইমেইল/ফোন এখানে যুক্ত করুন।</p><div class="support-links"><button class="btn light" onclick="showToast('WhatsApp গ্রুপের লিংক এখনো সেট করা হয়নি।')">WhatsApp Group</button><button class="btn light" onclick="showToast('Telegram গ্রুপের লিংক এখনো সেট করা হয়নি।')">Telegram Group</button></div><hr style="border:0;border-top:1px solid var(--line);margin:18px 0"><div class="field"><label>আপনার প্রশ্ন</label><textarea id="helpQuestion" placeholder="আপনার প্রশ্ন লিখুন..."></textarea></div><button class="btn" onclick="showToast('AI Help Center সংযোগ পরবর্তী ধাপে যুক্ত হবে।')">প্রশ্ন পাঠান</button></div></div>
+</section>
+<section class="page" id="page-notifications">
+  <div class="page-head"><div><h1>নোটিফিকেশন</h1><p>সাম্প্রতিক আপডেট</p></div></div>
+  <div class="card"><p>🔔 <strong>Professional Bazar-এ স্বাগতম</strong><br><small class="muted">আপনার অ্যাকাউন্ট সেটআপ সম্পন্ন করুন।</small></p><hr style="border:0;border-top:1px solid var(--line)"><p>📢 <strong>নতুন ফিচার আসছে</strong><br><small class="muted">Frontend Prototype সংস্করণ চালু হয়েছে।</small></p></div>
+</section>
+<section class="page" id="page-policies">
+  <div class="page-head"><div><h1>নীতিমালা ও তথ্য</h1><p>ব্যবহার করার আগে নিয়মগুলো পড়ুন</p></div></div>
+  <div class="card"><h3>About Us</h3><p class="muted">Professional Bazar একটি প্রস্তাবিত অনলাইন মার্কেটপ্লেস ও ডিজিটাল কাজের প্ল্যাটফর্ম। প্রতিষ্ঠানের প্রকৃত পরিচিতি ও যোগাযোগের তথ্য এখানে যুক্ত করতে হবে।</p><hr style="border:0;border-top:1px solid var(--line)"><h3>Privacy Policy</h3><p class="muted">ব্যবহারকারীর ব্যক্তিগত তথ্য কেবল নির্দিষ্ট উদ্দেশ্যে, সম্মতি নিয়ে এবং সীমিত অনুমতিতে ব্যবহার করতে হবে। NID ও পরিচয়সংক্রান্ত তথ্য public করা যাবে না।</p><hr style="border:0;border-top:1px solid var(--line)"><h3>রিটার্ন ও রিফান্ড</h3><p class="muted">রিটার্নের শর্ত, সময়সীমা, প্রমাণ জমা ও অনুমোদন প্রক্রিয়া পূর্ণাঙ্গভাবে নির্ধারণ করতে হবে।</p><hr style="border:0;border-top:1px solid var(--line)"><h3>নিষিদ্ধ কার্যক্রম</h3><p class="muted">ভুয়া/বিভ্রান্তিকর পণ্য, প্রতারণা, অবৈধ লেনদেন এবং প্ল্যাটফর্ম নীতিমালা ভঙ্গকারী কাজের বিরুদ্ধে ব্যবস্থা নেওয়া হবে।</p></div>
+</section>
+</main>
+</div>
+<nav class="bottom-nav">
+<button class="active" data-page="home" onclick="showPage('home')"><span>⌂</span>হোম</button>
+<button data-page="reels" onclick="showPage('reels')"><span>▶</span>রিলস</button>
+<button data-page="reselling" onclick="showPage('reselling')"><span>🛍</span>রিসেলিং</button>
+<button data-page="jobs" onclick="showPage('jobs')"><span>💼</span>জবস</button>
+<button data-page="profile" onclick="showPage('profile')"><span>◉</span>প্রোফাইল</button>
+</nav>
+</div>
 
-/* PROFESSIONAL BAZAR - APPWRITE PRODUCT CONNECTION */
-
-const PB_DATABASE = new Appwrite.Databases(
-    new Appwrite.Client()
-        .setEndpoint("https://nyc.cloud.appwrite.io/v1")
-        .setProject("6aea58b2002a41210e99")
-);
-
-const PB_STORAGE = new Appwrite.Storage(
-    new Appwrite.Client()
-        .setEndpoint("https://nyc.cloud.appwrite.io/v1")
-        .setProject("6aea58b2002a41210e99")
-);
-
-const PB_DB_ID = "6aff4d7c003ab6b9eab8";
-const PB_PRODUCTS_ID = "products";
-const PB_BUCKET_ID = "6aff62870003c265efa4";
-
-/* LOAD PRODUCTS FROM APPWRITE */
-
-async function loadProductsFromAppwrite() {
-    try {
-        const result = await PB_DATABASE.listDocuments(
-            PB_DB_ID,
-            PB_PRODUCTS_ID
-        );
-
-        products.splice(0, products.length);
-
-        for (const doc of result.documents) {
-            let image = "https://placehold.co/400x300/eaf7ef/12834b?text=Product";
-
-            if (doc.imageId) {
-                image = PB_STORAGE.getFileView(
-                    PB_BUCKET_ID,
-                    doc.imageId
-                ).toString();
-            }
-
-            products.push({
-                id: doc.$id,
-                name: doc.name,
-                price: doc.price,
-                category: doc.category,
-                description: doc.description || "",
-                image: image
-            });
-        }
-
-        renderProducts();
-
-    } catch (error) {
-        console.error("Product loading error:", error);
-        alert("Products could not be loaded. Check Appwrite permissions and Collection ID.");
-    }
-}
-
-/* UPLOAD PRODUCT TO APPWRITE */
-
-window.addProduct = async function() {
-
-    if (!currentUser) {
-        alert("Please login before uploading products.");
-        openAuth();
-        return;
-    }
-
-    const name = $("pName").value.trim();
-    const price = Number($("pPrice").value);
-    const category = $("pCategory").value;
-    const description = $("pDescription").value.trim();
-    const file = $("pImage").files[0];
-
-    if (!name || !price || price <= 0) {
-        alert("Enter a valid product name and price.");
-        return;
-    }
-
-    if (file && !file.type.startsWith("image/")) {
-        alert("Please select a valid image.");
-        return;
-    }
-
-    if (file && file.size > 5 * 1024 * 1024) {
-        alert("Image must be smaller than 5 MB.");
-        return;
-    }
-
-    let imageId = "";
-
-    try {
-        alert("Uploading product. Please wait...");
-
-        /* Upload image */
-        if (file) {
-            const fileId = Appwrite.ID.unique();
-
-            const uploaded = await PB_STORAGE.createFile(
-                PB_BUCKET_ID,
-                fileId,
-                Appwrite.InputFile.fromBlob(file, file.name),
-                [
-                    Appwrite.Permission.read(
-                        Appwrite.Role.any()
-                    ),
-                    Appwrite.Permission.update(
-                        Appwrite.Role.user(currentUser.$id)
-                    ),
-                    Appwrite.Permission.delete(
-                        Appwrite.Role.user(currentUser.$id)
-                    )
-                ]
-            );
-
-            imageId = uploaded.$id;
-        }
-
-        /* Save product document */
-        await PB_DATABASE.createDocument(
-            PB_DB_ID,
-            PB_PRODUCTS_ID,
-            Appwrite.ID.unique(),
-            {
-                name: name,
-                description: description,
-                price: price,
-                category: category,
-                imageId: imageId,
-                sellerId: currentUser.$id,
-                status: "active",
-                createdAt: new Date().toISOString()
-            },
-            [
-                Appwrite.Permission.read(Appwrite.Role.any()),
-                Appwrite.Permission.update(
-                    Appwrite.Role.user(currentUser.$id)
-                ),
-                Appwrite.Permission.delete(
-                    Appwrite.Role.user(currentUser.$id)
-                )
-            ]
-        );
-
-        $("pName").value = "";
-        $("pPrice").value = "";
-        $("pDescription").value = "";
-        $("pImage").value = "";
-
-        await loadProductsFromAppwrite();
-
-        alert("Product successfully uploaded!");
-
-    } catch (error) {
-        console.error("Product upload error:", error);
-        alert("Upload failed: " + error.message);
-    }
-};
-
-/* SHOW APPWRITE PRODUCTS */
-
-window.renderProducts = function() {
-
-    const filter = $("categoryFilter")?.value || "All";
-
-    const filtered = products.filter(product =>
-        filter === "All" || product.category === filter
-    );
-
-    $("productList").innerHTML = filtered.length
-        ? filtered.map(product => `
-            <div class="card">
-                <img
-                    class="product-img"
-                    src="${escapeHTML(product.image)}"
-                    alt="Product"
-                >
-                <h3>${escapeHTML(product.name)}</h3>
-                <p><b>৳${Number(product.price).toLocaleString("en-BD")}</b></p>
-                <p class="small">${escapeHTML(product.category)}</p>
-                <p>${escapeHTML(product.description || "")}</p>
-                <button class="btn" onclick="buyProduct('${String(product.id).replace(/'/g, "\\'")}')">
-                    Order Now
-                </button>
-            </div>
-        `).join("")
-        : '<div class="card">No products available.</div>';
-
-    $("homeProducts").innerHTML = products.slice(0, 4).map(product => `
-        <div class="card">
-            <img class="product-img" src="${escapeHTML(product.image)}" alt="Product">
-            <h3>${escapeHTML(product.name)}</h3>
-            <b>৳${Number(product.price).toLocaleString("en-BD")}</b>
-            <button class="btn" onclick="showPage('reselling')">View Products</button>
-        </div>
-    `).join("") || '<div class="card">Products will appear here.</div>';
-};
-
-/* LOAD PRODUCTS AFTER LOGIN CHECK */
-
-loadProductsFromAppwrite();
+<div class="modal-backdrop" id="addProductModal"><div class="modal"><div class="modal-head"><h2>নতুন পণ্য যোগ করুন</h2><button class="close" onclick="closeModal('addProductModal')">✕</button></div><div class="field"><label>পণ্যের নাম</label><input id="newProductName" placeholder="পণ্যের নাম"></div><div class="form-grid"><div class="field"><label>দাম (৳)</label><input id="newProductPrice" type="number" placeholder="1000"></div><div class="field"><label>ক্যাটাগরি</label><select id="newProductCat"><option>ইলেকট্রনিক্স</option><option>ফ্যাশন</option><option>হোম</option><option>অন্যান্য</option></select></div></div><div class="field"><label>ইমোজি/ছবির প্রতীক</label><input id="newProductEmoji" placeholder="📦"></div><button class="btn" onclick="addProduct()">ডেমো পণ্য যোগ করুন</button></div></div>
+<div class="modal-backdrop" id="postJobModal"><div class="modal"><div class="modal-head"><h2>নতুন জব পোস্ট</h2><button class="close" onclick="closeModal('postJobModal')">✕</button></div><div class="field"><label>কাজের নাম</label><input id="newJobName" placeholder="যেমন: পণ্যের ছবি সম্পাদনা"></div><div class="field"><label>কাজের নির্দেশনা</label><textarea id="newJobDesc" placeholder="কাজটি কীভাবে করতে হবে"></textarea></div><div class="field"><label>পারিশ্রমিক (৳)</label><input id="newJobPay" type="number" placeholder="100"></div><button class="btn" onclick="addJob()">ডেমো জব যোগ করুন</button></div></div>
+<div class="toast" id="toast"></div>
+<script>
+const products=[
+ {name:"স্মার্ট ওয়াচ",price:1250,cat:"ইলেকট্রনিক্স",emoji:"⌚",seller:"PB Store"},
+ {name:"USB রিচার্জেবল ফ্যান",price:450,cat:"ইলেকট্রনিক্স",emoji:"🪭",seller:"PB Store"},
+ {name:"প্রিমিয়াম ব্যাকপ্যাক",price:890,cat:"ফ্যাশন",emoji:"🎒",seller:"Fashion Hub"},
+ {name:"টেবিল ল্যাম্প",price:650,cat:"হোম",emoji:"💡",seller:"Home Shop"},
+ {name:"ওয়্যারলেস ইয়ারবাড",price:990,cat:"ইলেকট্রনিক্স",emoji:"🎧",seller:"PB Store"},
+ {name:"পানির বোতল",price:280,cat:"অন্যান্য",emoji:"🧴",seller:"Daily Needs"},
+ {name:"স্পোর্টস জুতা",price:1450,cat:"ফ্যাশন",emoji:"👟",seller:"Fashion Hub"},
+ {name:"কিচেন অর্গানাইজার",price:520,cat:"হোম",emoji:"🧺",seller:"Home Shop"}
+];
+let jobs=[
+ {name:"পণ্যের ছবি সম্পাদনা",desc:"প্রদত্ত ছবির ব্যাকগ্রাউন্ড পরিষ্কার করে JPG ফাইল তৈরি করুন।",pay:120,type:"ডিজাইন"},
+ {name:"বাংলা পণ্য বিবরণ লেখা",desc:"পণ্যের বৈশিষ্ট্য দেখে ১০০–১৫০ শব্দের মৌলিক বিবরণ লিখুন।",pay:80,type:"কনটেন্ট"},
+ {name:"ওয়েবসাইট ব্যবহার পরীক্ষা",desc:"ওয়েবসাইটের পেজ পরীক্ষা করে সমস্যা ও মতামত জমা দিন।",pay:100,type:"টেস্টিং"},
+ {name:"পণ্য ক্যাটালগ সাজানো",desc:"পণ্যের নাম, ক্যাটাগরি ও তথ্য স্প্রেডশিটে সাজান।",pay:150,type:"ডেটা"}
+];
+function productCard(p){return `<article class="card product"><div class="product-img">${escapeHtml(p.emoji||"📦")}</div><div class="product-body"><span class="pill">${escapeHtml(p.cat)}</span><h3>${escapeHtml(p.name)}</h3><div class="price">৳ ${Number(p.price).toLocaleString("en-US")}</div><div class="product-meta"><span>${escapeHtml(p.seller||"সদস্য")}</span><span>ডেমো</span></div><button class="btn light small" style="width:100%" onclick="showToast('এটি ডেমো পণ্য। অর্ডার ব্যবস্থা এখনো সংযুক্ত নয়।')">বিস্তারিত দেখুন</button></div></article>`}
+function renderProducts(list=products){document.getElementById("allProducts").innerHTML=list.map(productCard).join("");document.getElementById("homeProducts").innerHTML=products.slice(0,4).map(productCard).join("")}
+function renderJobs(){document.getElementById("jobList").innerHTML=jobs.map((j,i)=>`<div class="card job"><div><span class="pill">${escapeHtml(j.type)}</span><h3>${escapeHtml(j.name)}</h3><p>${escapeHtml(j.desc)}</p></div><div style="text-align:right"><div class="job-pay">৳ ${Number(j.pay).toLocaleString("en-US")}</div><button class="btn small" style="margin-top:8px" onclick="joinJob(${i})">কাজে যোগ দিন</button></div></div>`).join("")}
+function toggleMobileMenu(){const open=document.body.classList.toggle("mobile-menu-open");const btn=document.getElementById("mobileMenuBtn");if(btn)btn.setAttribute("aria-expanded",String(open))}
+function closeMobileMenu(){document.body.classList.remove("mobile-menu-open");const btn=document.getElementById("mobileMenuBtn");if(btn)btn.setAttribute("aria-expanded","false")}
+function showPage(name){document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));const target=document.getElementById("page-"+name);if(target)target.classList.add("active");document.querySelectorAll("[data-page]").forEach(b=>b.classList.toggle("active",b.dataset.page===name));closeMobileMenu();window.scrollTo({top:0,behavior:"smooth"})}
+function filterProducts(cat,btn){document.querySelectorAll("#categoryFilters button").forEach(b=>b.classList.remove("active"));btn.classList.add("active");renderProducts(cat==="সব"?products:products.filter(p=>p.cat===cat))}
+function showToast(message){const t=document.getElementById("toast");t.textContent=message;t.style.display="block";clearTimeout(window.toastTimer);window.toastTimer=setTimeout(()=>t.style.display="none",3000)}
+function openModal(id){document.getElementById(id).classList.add("show")}function closeModal(id){document.getElementById(id).classList.remove("show")}
+function addProduct(){const name=document.getElementById("newProductName").value.trim(),price=Number(document.getElementById("newProductPrice").value),cat=document.getElementById("newProductCat").value,emoji=document.getElementById("newProductEmoji").value.trim()||"📦";if(!name||!price||price<1){showToast("পণ্যের নাম ও সঠিক দাম দিন।");return}products.unshift({name,price,cat,emoji,seller:"আপনি"});renderProducts();closeModal("addProductModal");showToast("ডেমো পণ্য যোগ হয়েছে।")}
+function addJob(){const name=document.getElementById("newJobName").value.trim(),desc=document.getElementById("newJobDesc").value.trim(),pay=Number(document.getElementById("newJobPay").value);if(!name||!desc||!pay||pay<1){showToast("সব তথ্য সঠিকভাবে পূরণ করুন।");return}jobs.unshift({name,desc,pay,type:"সদস্য পোস্ট"});renderJobs();closeModal("postJobModal");showToast("ডেমো জব যোগ হয়েছে।")}
+function joinJob(i){showToast("ডেমো: “"+jobs[i].name+"” কাজে যোগ দেওয়া হয়নি। বাস্তব জব সিস্টেম পরে যুক্ত হবে।")}
+function saveProfile(){const n=document.getElementById("editName").value.trim();if(!n){showToast("নাম লিখুন।");return}document.getElementById("profileName").textContent=n;document.getElementById("sideName").textContent=n;showToast("এই সেশনে নাম আপডেট হয়েছে।")}
+function uploadAvatar(e){const f=e.target.files&&e.target.files[0];if(!f)return;if(!f.type.startsWith("image/")){showToast("শুধু ছবি নির্বাচন করুন।");return}const url=URL.createObjectURL(f);["profileAvatar","sideAvatar"].forEach(id=>{document.getElementById(id).innerHTML=`<img src="${url}" alt="প্রোফাইল ছবি">`});showToast("ছবি এই ব্রাউজার সেশনে দেখানো হচ্ছে।")}
+function copyReferral(){const v=document.getElementById("refLink").value;if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(v).then(()=>showToast("রেফারেল লিংক কপি হয়েছে।")).catch(()=>showToast(v))}else showToast(v)}
+function toggleLanguage(){showToast("ইংরেজি ভাষা সম্পূর্ণ অনুবাদ পরবর্তী সংস্করণে যুক্ত হবে।")}
+function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeMobileMenu()});
+renderProducts();renderJobs();
+</script>
+</body>
+</html>
